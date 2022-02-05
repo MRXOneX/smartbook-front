@@ -6,14 +6,19 @@
                 <span class="book">Book</span>
             </div>
             <div class="form">
-                form
+                form <br>
+                <my-button>
+                    Log in
+                </my-button>
             </div>
         </div>
     </div>    
 </template>
 
 <script>
+import MyButton from '../components/UI/MyButton.vue'
 export default {
+  components: { MyButton },
     
 }
 </script>
