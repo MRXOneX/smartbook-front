@@ -31,7 +31,7 @@ export default {
         },
         borderRadius: {
             type: String,
-            default: () => "10px"
+            default: () => "5px"
         },
         outline: {
             type: String,
@@ -48,7 +48,11 @@ export default {
         fontSize: {
             type: String,
             default: () => "16px"
-        }
+        },
+        margin: {
+            type: String,
+            default: () => "0"
+        },
     },
     data() {
         return {
@@ -64,6 +68,7 @@ export default {
                 width: this.width,
                 height: this.height,
                 fontSize: this.fontSize,
+                margin: this.margin,
             }
         }
     }

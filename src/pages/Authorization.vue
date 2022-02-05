@@ -5,21 +5,16 @@
                 <span class="smart">Smart</span>
                 <span class="book">Book</span>
             </div>
-            <div class="form">
-                form <br>
-                <my-button>
-                    Log in
-                </my-button>
-            </div>
+            <form-login />
         </div>
     </div>    
 </template>
 
 <script>
-import MyButton from '../components/UI/MyButton.vue'
+import FormLogin from "@/components/FormLogin"
+
 export default {
-  components: { MyButton },
-    
+    components: { FormLogin }
 }
 </script>
 
@@ -58,14 +53,6 @@ export default {
         color: #3075FC;
     }
 
-    /* style for form */
-    .form {
-        width: 330px;
-        height: 310px;
-        background-color: white;
-        box-shadow: 0px 0px 5px rgba(107, 191, 255, 0.25);
-        border-radius: 5px;
-    }
 
 
     /* M E D I A */

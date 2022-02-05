@@ -1,6 +1,6 @@
 <template>
   <div class="App">
-    <authorization />
+    <router-view></router-view>
     <my-footer />
   </div>
 </template>
