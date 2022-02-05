@@ -1,8 +1,18 @@
 <template>
     <div class="wrapper">
         <form>
-            <my-input width="100%" padding="15px 25px" margin="10px 0" />
-            <my-input width="100%" padding="15px 25px" margin="10px 0" />
+            <my-input 
+                width="100%" 
+                padding="15px 15px" 
+                margin="10px 0"
+                placeholder="Email address or number phone"
+            />
+            <my-input 
+                width="100%" 
+                padding="15px 15px" 
+                margin="10px 0" 
+                placeholder="Password"
+            />
 
             <my-button margin="10px 0" >
                 Log in
