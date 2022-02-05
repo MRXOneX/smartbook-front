@@ -1,10 +1,7 @@
 <template>
     <div class="authorization">
         <div class="logo-form">
-            <div class="logo">
-                <span class="smart">Smart</span>
-                <span class="book">Book</span>
-            </div>
+            <logo fontSize="50px" />
             <form-login />
         </div>
     </div>    
@@ -12,9 +9,10 @@
 
 <script>
 import FormLogin from "@/components/FormLogin"
+import Logo from "@/components/Logo"
 
 export default {
-    components: { FormLogin }
+    components: { FormLogin, Logo }
 }
 </script>
 
@@ -41,16 +39,6 @@ export default {
 
         width: 840px;
         height: 100%;
-    }
-
-    /* Logo style */
-    .smart {
-        font-size: 50px;
-        color: #A511FF;
-    }
-    .book {
-        font-size: 50px;
-        color: #3075FC;
     }
 
 

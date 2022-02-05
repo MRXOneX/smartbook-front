@@ -1,16 +1,25 @@
 <template>
   <div class="App">
-    <router-view></router-view>
-    <my-footer />
+    <navbar />
+    
+    <container>
+      <router-view></router-view>
+    </container>
   </div>
 </template>
 
 <script>
+// pages
 import Authorization from "@/pages/Authorization"
+// components
 import MyFooter from "@/components/MyFooter"
+import Navbar from "@/components/Navbar"
+// layouts
+import Container from "@/layouts/Container"
+
 
 export default {
-  components: { Authorization, MyFooter },
+  components: { Authorization, MyFooter, Navbar, Container },
 
 
 
@@ -47,6 +56,5 @@ export default {
     height: 100vh; 
     /* Use vh as a fallback for browsers that do not support Custom Properties */
     height: calc(var(--vh, 1vh) * 100);
-
   }
 </style>

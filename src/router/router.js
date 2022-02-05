@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router"
-// components
+// pages
 import Authorization from "@/pages/Authorization"
+import Main from "@/pages/Main"
+
 
 const routes = [{
     path: "/",
-    component: Authorization
+    component: Main
 }]
 
 
