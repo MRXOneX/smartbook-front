@@ -40,6 +40,7 @@ export default {
         justify-content: space-between;
 
         width: 840px;
+        height: 100%;
     }
 
     /* Logo style */
@@ -61,4 +62,14 @@ export default {
         border-radius: 5px;
     }
 
+
+    /* M E D I A */
+
+    @media screen and (max-width: 850px) {
+        .logo-form {
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+    }
+ 
 </style>
