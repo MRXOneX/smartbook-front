@@ -1,30 +1,52 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="App">
+    <authorization />
+    <my-footer />
   </div>
-  <router-view/>
 </template>
 
+<script>
+import Authorization from "@/pages/Authorization"
+import MyFooter from "@/components/MyFooter"
+
+export default {
+  components: { Authorization, MyFooter },
+
+
+
+  mounted() {
+
+
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  },
+  
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  /* connected fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+  /* =============== */
 
-#nav {
-  padding: 30px;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #F0F2F5;
+  }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  html, body {
+    height: 100%;
+  }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  .App {
+    position: relative;
+
+    height: 100vh; 
+    /* Use vh as a fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
+
+  }
 </style>
