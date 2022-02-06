@@ -25,6 +25,9 @@
                     alt=""
                 >
                 <span class="user-name">name</span>
+                <font-awesome-icon 
+                    :icon="['fas', 'sort-down']" 
+                    :style="{background: 'none'}" />
             </my-button>
         </div>
     </div>
@@ -65,7 +68,7 @@ export default {
 
     .user-name {
         background: none;
-        margin-left: 6px;
+        margin: 0 6px;
     }
 
 
