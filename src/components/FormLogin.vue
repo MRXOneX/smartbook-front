@@ -22,7 +22,7 @@
             class="forgot"
             @click="$router.push('#')">forgotten password?</span>
         <div class="divider"/>
-        <my-button backgroundColor="#E4B9FE" margin="10px 0" >
+        <my-button backgroundColor="#E4B9FE" margin="15px 0" >
             Create new account
         </my-button>
     </div>
@@ -54,7 +54,7 @@ export default {
     }
 
     .divider {
-        margin: 10px 0;
+        margin: 15px 0;
         width: 100%;
         height: 1px;
         background-color: #c4c4c4;
