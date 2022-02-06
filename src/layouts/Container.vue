@@ -20,7 +20,7 @@ export default {
 
 <style scoped>
     .container {
-        width: 1100px;
+        width: 1200px;
         height: 100%;
         margin: 0 auto;
         padding: 70px 10px 20px;
