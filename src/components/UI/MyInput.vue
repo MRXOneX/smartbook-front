@@ -1,5 +1,5 @@
 <template>
-    <input 
+    <input
         :type="this.type" 
         :placeholder="this.placeholder" 
         :style="styleInput">

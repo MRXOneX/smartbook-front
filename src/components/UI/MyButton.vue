@@ -89,3 +89,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    button:hover {
+        opacity: .9;
+        transition: .4s;
+    }
+</style>

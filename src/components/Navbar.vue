@@ -1,7 +1,9 @@
 <template>
     <div class="navbar">
         <div class="logo">
-            <logo />
+            <my-button padding="0">
+                <logo />
+            </my-button>
         </div>
         <div>
             menu
