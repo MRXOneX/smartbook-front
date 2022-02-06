@@ -4,41 +4,47 @@
             <logo fontSize="50px" />
             <form-login />
         </div>
-    </div>    
+        <my-footer />
+    </div>
 </template>
 
 <script>
 import FormLogin from "@/components/FormLogin"
 import Logo from "@/components/Logo"
+import MyFooter from "@/components/MyFooter"
 
 export default {
-    components: { FormLogin, Logo }
+    components: { FormLogin, Logo, MyFooter }
 }
 </script>
 
 <style scoped>
     @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
+
     .authorization {
         width: 100%;
         height: 100%;
 
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
         /* common style for text */
         
         font-weight: 400;
         font-family: 'Righteous', cursive;
     }
 
-    /* Style for block with logo and form */
+    /* style for block with logo and form */
     .logo-form {
         display: flex;
         align-items: center;
         justify-content: space-between;
 
-        width: 840px;
         height: 100%;
+        width: 840px;
     }
 
 
@@ -49,6 +55,7 @@ export default {
         .logo-form {
             flex-direction: column;
             justify-content: space-evenly;
+            width: auto;
         }
     }
  

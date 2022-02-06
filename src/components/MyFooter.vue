@@ -1,7 +1,5 @@
 <template>
-    <footer>
-        <span>&copy; SmartBook</span>
-    </footer>
+    <span>&copy; SmartBook</span>
 </template>
 
 <script>
@@ -10,14 +8,8 @@ export default {}
 
 
 <style scoped>
-    footer {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 30px;
-
-        text-align: center;
+    span {
+        padding: 10px 0;
 
         color: #9E9C9C;
 

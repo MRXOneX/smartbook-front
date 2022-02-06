@@ -1,11 +1,22 @@
 <template>
     <div class="navbar">
-        <logo :styleLogo="styleLogo" />
+        <div class="logo">
+            <logo />
+        </div>
         <div>
             menu
         </div>
         <div class="btn-user-menu">
-            <my-button :styleButton="styleButtonUser">
+            <my-button 
+                backgroundColor="rgba(151, 158, 222, 0.19)"
+                borderRadius="50px"
+                color="rgba(56, 88, 152, 0.81)"
+                padding="6px 10px"
+                outline="none"
+                border="none"
+                display="flex"
+                alignItems="center"
+            >
                 <img 
                     class="user-logo" 
                     height="29" 
@@ -25,28 +36,7 @@ import Logo from "@/components/Logo"
 
 
 export default {
-    components: { Logo },
-
-
-
-    data() {
-        return {
-            styleButtonUser: {
-                backgroundColor: "rgba(151, 158, 222, 0.19)",
-                borderRadius: "50px",
-                color: "rgba(56, 88, 152, 0.81)",
-                padding: "6px 10px",
-                outline: "none",
-                border: "none",
-                display: "flex",
-                alignItems: "center"
-            },
-            styleLogo: {
-                fontSize: "24px",
-                cursor: "pointer"
-            }
-        }
-    }
+    components: { Logo }
 }
 </script>
 
@@ -70,11 +60,21 @@ export default {
 
     .user-logo {
         border-radius: 50%;
+        background: none;
     }
 
     .user-name {
         background: none;
         margin-left: 6px;
+    }
+
+
+    /* M E D I A*/
+
+    @media screen and (max-width: 450px) {
+        .logo {
+            display: none;
+        }
     }
 
 </style>

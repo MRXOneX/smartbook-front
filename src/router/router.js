@@ -4,10 +4,17 @@ import Authorization from "@/pages/Authorization"
 import Main from "@/pages/Main"
 
 
-const routes = [{
-    path: "/",
-    component: Main
-}]
+const routes = [
+    {
+        path: "/",
+        component: Main
+    },
+
+    {
+        path: "/login",
+        component: Authorization
+    }
+]
 
 
 const router = createRouter({

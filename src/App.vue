@@ -1,36 +1,11 @@
 <template>
-  <div class="App">
-    <navbar />
-    
-    <container>
-      <router-view></router-view>
-    </container>
-  </div>
+  <router-view></router-view>
 </template>
 
 <script>
-// pages
-import Authorization from "@/pages/Authorization"
-// components
-import MyFooter from "@/components/MyFooter"
-import Navbar from "@/components/Navbar"
-// layouts
-import Container from "@/layouts/Container"
 
 
 export default {
-  components: { Authorization, MyFooter, Navbar, Container },
-
-
-
-  mounted() {
-
-
-    let vh = window.innerHeight * 0.01;
-    // Then we set the value in the --vh custom property to the root of the document
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  },
-  
 }
 </script>
 
@@ -50,11 +25,5 @@ export default {
     height: 100%;
   }
 
-  .App {
-    position: relative;
-
-    height: 100vh; 
-    /* Use vh as a fallback for browsers that do not support Custom Properties */
-    height: calc(var(--vh, 1vh) * 100);
-  }
+  #app {height: 100%;}
 </style>

@@ -11,9 +11,18 @@
 <script>
 export default {
     props: {
-        logoStyle: {
-            type: Object,
-            required: true
+        fontSize: {
+            type: String,
+            default: () => "24px"
+        }
+    },
+
+
+    data() {
+        return {
+            logoStyle: {
+                fontSize: this.fontSize,
+            }
         }
     }
 }
