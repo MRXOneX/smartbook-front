@@ -1,5 +1,5 @@
 <template>
-    <span>&copy; SmartBook</span>
+    <span>&copy; 2022 SmartBook</span>
 </template>
 
 <script>
