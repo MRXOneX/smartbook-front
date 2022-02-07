@@ -64,6 +64,10 @@ export default {
         alignItems: {
             type: String,
             default: () => ""
+        },
+        position: {
+            type: String,
+            default: () => "none"
         }
     },
     data() {
@@ -84,6 +88,7 @@ export default {
                 display: this.display,
                 justifyContent: this.justifyContent,
                 alignItems: this.alignItems,
+                position: this.position,
             }
         }
     }
@@ -91,8 +96,4 @@ export default {
 </script>
 
 <style scoped>
-    button:hover {
-        opacity: .9;
-        transition: .4s;
-    }
 </style>

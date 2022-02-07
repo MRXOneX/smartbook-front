@@ -9,7 +9,8 @@
             menu
         </div>
         <div class="btn-user-menu">
-            <my-button 
+            <div>
+                <my-button 
                 backgroundColor="rgba(151, 158, 222, 0.19)"
                 borderRadius="50px"
                 color="rgba(56, 88, 152, 0.81)"
@@ -18,6 +19,7 @@
                 border="none"
                 display="flex"
                 alignItems="center"
+                position="relative"
             >
                 <img 
                     class="user-logo" 
@@ -30,7 +32,9 @@
                 <font-awesome-icon 
                     :icon="['fas', 'sort-down']" 
                     :style="{background: 'none'}" />
-            </my-button>
+                </my-button>
+                <dropdown />
+            </div>
         </div>
     </div>
 </template>
@@ -38,10 +42,11 @@
 
 <script>
 import Logo from "@/components/Logo"
+import Dropdown from "@/components/Dropdown"
 
 
 export default {
-    components: { Logo }
+    components: { Logo, Dropdown }
 }
 </script>
 
