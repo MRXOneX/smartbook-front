@@ -46,14 +46,14 @@ export default {
         justify-content: space-between;
 
         height: 100%;
-        width: 840px;
+        width: 940px;
     }
 
 
 
     /* M E D I A */
 
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 940px) {
         .logo-form {
             flex-direction: column;
             justify-content: space-evenly;

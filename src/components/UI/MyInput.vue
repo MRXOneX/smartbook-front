@@ -40,7 +40,7 @@ export default {
         },
         width: {
             type: String,
-            default: () => "auto"
+            default: () => "100%"
         },
         margin: {
             type: String,

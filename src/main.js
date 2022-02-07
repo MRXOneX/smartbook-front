@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 // vue-fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSortDown, faSortUp, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faSortDown, faSortUp, faSignOutAlt, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 //
 import router from "@/router/router"
@@ -17,7 +17,7 @@ const app = createApp(App)
 
 // -----
 
-library.add(faSortDown, faSortUp, faSignOutAlt)
+library.add(faSortDown, faSortUp, faSignOutAlt, faTimes)
 
 app.component('font-awesome-icon', FontAwesomeIcon)
 
