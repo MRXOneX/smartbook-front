@@ -38,8 +38,8 @@ export default {
 <style scoped>
     .wrapper {
         padding: 10px 15px;
-        width: 330px;
-        height: 310px;
+        width: 340px;
+        height: 320px;
         background-color: white;
         box-shadow: 0px 0px 5px rgba(107, 191, 255, 0.25);
         border-radius: 10px;

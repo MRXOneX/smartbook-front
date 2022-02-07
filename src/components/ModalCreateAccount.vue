@@ -12,16 +12,51 @@
                         cursor: 'pointer'
                     }" />
             </div>
-            <div class="divider"/>
+            <divider/>
             <div class="content">
-                <my-input />
-                <my-input />
-                <my-input />
-                <my-input />
-                <my-input />
-                <my-button>
-                    Registration
-                </my-button>
+                <form>
+                    <div class="firstname-lastname">
+                        <my-input
+                            placeholder="Firstname"
+                            padding="10px" margin="5px 5px 5px 0" 
+                        />
+                        <my-input 
+                            placeholder="Lastname"
+                            padding="10px" margin="5px 0 5px 5px"
+                        />
+                    </div>
+                    <my-input 
+                        placeholder="Middlename"
+                        padding="10px" margin="5px 0"
+                    />
+
+                    
+                    <divider width="50%"/>
+
+                    <my-input 
+                        placeholder="Email address"
+                        padding="10px" margin="5px 0"
+                    />
+                    <my-input 
+                        placeholder="Password"
+                        padding="10px" margin="5px 0"
+                    />
+
+                    <divider width="50%"/>
+
+                    <my-input 
+                        placeholder="date of birth"
+                        padding="10px" margin="5px 0"
+                    />
+                    <my-input 
+                        placeholder="sex"
+                        padding="10px" margin="5px 0"
+                    />
+
+                    <my-button margin="10px 0">
+                        Registration
+                    </my-button>
+                </form>
             </div>
          </div>
     </div>
@@ -51,7 +86,7 @@ export default {
 
     .wrapper {
         width: 400px;
-        height: 500px;
+        height: auto;
         background: #FFFFFF;
         box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
@@ -71,13 +106,12 @@ export default {
         font-size: 33px;
     }
 
+    .content {background: none}
+    form {background: none}
 
-    .divider {
-        margin: 15px 0;
-        width: 100%;
-        height: 1px;
-        background-color: #c4c4c4;
-        border-radius: 20px;
+    .firstname-lastname {
+        display: flex;
+        background: none;
     }
 
     /* M E D I A*/
