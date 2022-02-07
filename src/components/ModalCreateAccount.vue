@@ -45,21 +45,30 @@
                     <divider width="50%"/>
 
                     
-                    <div>
-                        <select>
-                            <option default>Default</option>
-                        </select>
-                        <select>
-                            <option default>Default</option>
-                        </select>
-                        <select>
-                            <option default>Default</option>
-                        </select>
+                    <div class="dateOfBirth">
+                        <p>Date of Birth</p>
+                        <div>
+                            <select>
+                                <option default>Default</option>
+                            </select>
+                            <select>
+                                <option default>Default</option>
+                            </select>
+                            <select>
+                                <option default>Default</option>
+                            </select>
+                        </div>
                     </div>
 
 
-                    <div>
-                        <span>Man <input type="checkbox"/></span>
+                    <div class="sex">
+                        <div>
+                            <span>Man <input type="checkbox"/></span>
+                        </div>
+                        <div>
+                            <span>Woman <input type="checkbox"/></span>
+                        </div>
+
                     </div>
 
                     <my-button margin="20px 0 10px 0">
@@ -122,6 +131,32 @@ export default {
         display: flex;
         background: none;
     }
+
+    .dateOfBirth {
+        height: 50px;
+        margin: 10px 0;
+    }
+    .dateOfBirth p {
+        margin: 0;
+        font-size: 12px;
+    }
+    .dateOfBirth div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+    }
+
+    .sex {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 37px;
+        background: none;
+        margin: 10px 0;
+    }
+    .sex div {background: none}
+    .sex div span {background: none}
 
     /* M E D I A*/
 
