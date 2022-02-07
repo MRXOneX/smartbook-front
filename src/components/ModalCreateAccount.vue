@@ -83,7 +83,7 @@
                     </div>
 
                     <my-button margin="25px 0 10px 0">
-                        Registration
+                        Create account
                     </my-button>
                 </form>
             </div>
