@@ -1,14 +1,27 @@
 <template>
-    <div class="dropdown">
+    <div class="dropdown" v-if="this.isUserMenu" @click.stop="this.isUserMenu">
         <div class="user">
             <img height="50" width="50" src="https://i.imgur.com/eaTPwsU.png" alt="">
             <span>Полещенков Михаил Юрьевич</span>
+        </div>
+        <div class="divider"/>
+        <div class="exit">
+            <font-awesome-icon
+                :icon="['fas', 'sign-out-alt']" 
+                :style="{background: 'none'}" />
+            <span>Exit</span>
         </div>
     </div>
 </template>
 
 <script>
 export default {
+    props: {
+        isUserMenu: {
+            type: Boolean,
+            default: () => false
+        }
+    }
 }
 </script>
 
@@ -16,28 +29,70 @@ export default {
     .dropdown {
         position: absolute;
         z-index: 1;
-        bottom: -80px;
         right: 20px;
+        top:65px ;
         border-radius: 5px;
 
         width: 300px;
 
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
-        padding: 10px;
+        padding: 10px 10px;
     }
 
     .user {
         display: flex;
         align-items: center;
-        padding: 0 10px;
         height: 50px;
         width: 100%;
+        padding: 30px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        transition: .5s;
     }
 
-    .user span {
+    .exit {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        transition: .5s;
+
+        /* style text */
+        color: #585858;
+        font-size: 20px;
+    }
+    .exit span {
         margin-left: 10px;
     }
 
+    .user img {
+        border-radius: 50%;
+        background: none;
+    }
+
+    .exit:hover,
+    .user:hover {
+        background: #EBEEFF;
+    }
+
+
+    .user span {
+        margin-left: 10px;
+        background: none;
+    }
+    
+
+    .divider {
+        margin: 10px 0;
+        width: 100%;
+        height: 1px;
+        background-color: #c4c4c4;
+        border-radius: 20px;
+    }
 
 
 

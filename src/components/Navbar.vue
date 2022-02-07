@@ -11,15 +11,16 @@
         <div class="btn-user-menu">
             <div>
                 <my-button 
-                backgroundColor="rgba(151, 158, 222, 0.19)"
-                borderRadius="50px"
-                color="rgba(56, 88, 152, 0.81)"
-                padding="6px 10px"
-                outline="none"
-                border="none"
-                display="flex"
-                alignItems="center"
-                position="relative"
+                    backgroundColor="rgba(151, 158, 222, 0.19)"
+                    borderRadius="50px"
+                    color="rgba(56, 88, 152, 0.81)"
+                    padding="6px 10px"
+                    outline="none"
+                    border="none"
+                    display="flex"
+                    alignItems="center"
+                    position="relative"
+                    @click="changeIsUserMenu"
             >
                 <img 
                     class="user-logo" 
@@ -29,11 +30,19 @@
                     alt=""
                 >
                 <span class="user-name">name</span>
-                <font-awesome-icon 
+
+                <font-awesome-icon
+                    v-if="isUserMenu"
+                    :icon="['fas', 'sort-up']" 
+                    :style="{background: 'none'}" />
+                <font-awesome-icon
+                    v-else
                     :icon="['fas', 'sort-down']" 
                     :style="{background: 'none'}" />
+
                 </my-button>
-                <dropdown />
+                <dropdown
+                    :isUserMenu="isUserMenu"/>
             </div>
         </div>
     </div>
@@ -46,7 +55,19 @@ import Dropdown from "@/components/Dropdown"
 
 
 export default {
-    components: { Logo, Dropdown }
+    components: { Logo, Dropdown },
+
+    data() {
+        return {
+            isUserMenu: false
+        }
+    },
+
+    methods: {
+        changeIsUserMenu() {
+            this.isUserMenu = !this.isUserMenu
+        }
+    }
 }
 </script>
 
