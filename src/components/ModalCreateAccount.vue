@@ -53,7 +53,7 @@
                         padding="10px" margin="5px 0"
                     />
 
-                    <my-button margin="10px 0">
+                    <my-button margin="20px 0 10px 0">
                         Registration
                     </my-button>
                 </form>
