@@ -5,6 +5,7 @@
             <form-login />
         </div>
         <my-footer />
+        <modal-create-account />
     </div>
 </template>
 
@@ -12,9 +13,10 @@
 import FormLogin from "@/components/FormLogin"
 import Logo from "@/components/Logo"
 import MyFooter from "@/components/MyFooter"
+import ModalCreateAccount from "@/components/ModalCreateAccount"
 
 export default {
-    components: { FormLogin, Logo, MyFooter }
+    components: { FormLogin, Logo, MyFooter, ModalCreateAccount }
 }
 </script>
 

@@ -8,7 +8,7 @@
         <div class="exit">
             <font-awesome-icon
                 :icon="['fas', 'sign-out-alt']" 
-                :style="{background: 'none'}" />
+                :style="{background: 'none', fontSize: '24px'}" />
             <span>Exit</span>
         </div>
     </div>
@@ -66,7 +66,8 @@ export default {
         font-size: 20px;
     }
     .exit span {
-        margin-left: 10px;
+        margin-left: 15px;
+        background: none;
     }
 
     .user img {
@@ -76,7 +77,7 @@ export default {
 
     .exit:hover,
     .user:hover {
-        background: #EBEEFF;
+        background: rgba(151, 158, 222, 0.19);
     }
 
 
