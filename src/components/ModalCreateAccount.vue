@@ -44,14 +44,23 @@
 
                     <divider width="50%"/>
 
-                    <my-input 
-                        placeholder="date of birth"
-                        padding="10px" margin="5px 0"
-                    />
-                    <my-input 
-                        placeholder="sex"
-                        padding="10px" margin="5px 0"
-                    />
+                    
+                    <div>
+                        <select>
+                            <option default>Default</option>
+                        </select>
+                        <select>
+                            <option default>Default</option>
+                        </select>
+                        <select>
+                            <option default>Default</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <span>Man <input type="checkbox"/></span>
+                    </div>
 
                     <my-button margin="20px 0 10px 0">
                         Registration

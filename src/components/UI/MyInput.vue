@@ -36,7 +36,7 @@ export default {
         },
         background: {
             type: String,
-            default: () => "#F5F7FF"
+            default: () => "#F7F8FF"
         },
         width: {
             type: String,
