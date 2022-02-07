@@ -61,14 +61,12 @@
                     </div>
 
 
-                    <div class="sex">
-                        <div>
-                            <span>Man <input type="checkbox"/></span>
+                    <div class="wrapper-sex">
+                        <p>Sex</p>
+                        <div class="sex">
+                            <label>Man <input name="sexRadio" value="man" type="radio"/></label>
+                            <label>Woman <input name="sexRadio" value="woman" type="radio"/></label>
                         </div>
-                        <div>
-                            <span>Woman <input type="checkbox"/></span>
-                        </div>
-
                     </div>
 
                     <my-button margin="20px 0 10px 0">
@@ -132,13 +130,17 @@ export default {
         background: none;
     }
 
+
+
     .dateOfBirth {
         height: 50px;
         margin: 10px 0;
+        background: none;
     }
     .dateOfBirth p {
-        margin: 0;
+        margin: 0 0 2px 0;
         font-size: 12px;
+        background: none;
     }
     .dateOfBirth div {
         display: flex;
@@ -147,16 +149,53 @@ export default {
         background: none;
     }
 
+    .dateOfBirth div select {
+        height: 35px;
+        width: 28%;
+        padding: 0 5px;
+        background: none;
+        border-radius: 5px;
+        border: 1px solid #c4c4c4;
+        outline: none;
+    }
+
+
+
+    .wrapper-sex {
+        background: none;
+        height: 55px;
+        margin: 10px 0;
+    }
+
+    .wrapper-sex p {
+        background: none;
+        margin: 0 0 2px 0;
+        font-size: 14px;
+    }
+
+
     .sex {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        height: 37px;
         background: none;
-        margin: 10px 0;
+        height: 35px;
     }
-    .sex div {background: none}
-    .sex div span {background: none}
+
+    .sex label {
+        cursor: pointer;
+        background: none;
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border: 1px solid #c4c4c4;
+        color: #525252;
+        height: 100%;
+        width: 35%;
+
+        border-radius: 5px;
+    }
 
     /* M E D I A*/
 
