@@ -49,10 +49,10 @@
                         <p>Date of Birth</p>
                         <div>
                             <select>
-                                <option default>Default</option>
+                                <option v-for="(item, index) in 31" :key="item">{{index + 1}}</option>
                             </select>
                             <select>
-                                <option default>Default</option>
+                                <option v-for="month in dateOfBirth.months" :key="month">{{ month }}</option>
                             </select>
                             <select>
                                 <option default>Default</option>
@@ -69,7 +69,7 @@
                         </div>
                     </div>
 
-                    <my-button margin="20px 0 10px 0">
+                    <my-button margin="25px 0 10px 0">
                         Registration
                     </my-button>
                 </form>
@@ -83,6 +83,14 @@ import MyButton from './UI/MyButton.vue'
 import MyInput from './UI/MyInput.vue'
 export default {
   components: { MyInput, MyButton },
+
+  data() {
+      return {
+          dateOfBirth: {
+              months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
+          }
+      }
+  }
     
 }
 </script>
@@ -151,7 +159,7 @@ export default {
 
     .dateOfBirth div select {
         height: 35px;
-        width: 28%;
+        width: 30%;
         padding: 0 5px;
         background: none;
         border-radius: 5px;
