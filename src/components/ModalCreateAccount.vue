@@ -1,9 +1,5 @@
 <template>
-    <div class="container">
-        <div class="wrapper">
-
-         </div>
-    </div>
+   
 </template>
 
 <script>
