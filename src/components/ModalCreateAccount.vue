@@ -49,13 +49,13 @@
                         <p>Date of Birth</p>
                         <div>
                             <select>
-                                <option v-for="(item, index) in 31" :key="item">{{index + 1}}</option>
+                                <option v-for="(item, index) in 31" :key="item">{{ index + 1 }}</option>
                             </select>
                             <select>
                                 <option v-for="month in dateOfBirth.months" :key="month">{{ month }}</option>
                             </select>
                             <select>
-                                <option default>Default</option>
+                                <option v-for="year in dateOfBirth.years()" :key="year">{{ year }}</option>
                             </select>
                         </div>
                     </div>
@@ -87,7 +87,15 @@ export default {
   data() {
       return {
           dateOfBirth: {
-              months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
+              months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+              years: () => {
+                  let arr = []
+                  
+                  for (let i = 1905; i < new Date().getFullYear(); i++) {
+                    arr[i] = i + 1
+                  }
+                  return arr.filter(el => el !== undefined)
+              }
           }
       }
   }
