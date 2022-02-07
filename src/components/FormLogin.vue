@@ -22,7 +22,11 @@
             class="forgot"
             @click="$router.push('#')">forgotten password?</span>
         <div class="divider"/>
-        <my-button backgroundColor="#E4B9FE" margin="15px 0" >
+        <my-button
+            @click="$emit('setIsShow', true)"
+            backgroundColor="#E4B9FE" 
+            margin="15px 0" 
+        >
             Create new account
         </my-button>
     </div>
@@ -39,7 +43,7 @@ export default {
     .wrapper {
         padding: 10px 15px;
         width: 340px;
-        height: 320px;
+        height: 310px;
         background-color: white;
         box-shadow: 0px 0px 5px rgba(107, 191, 255, 0.25);
         border-radius: 10px;

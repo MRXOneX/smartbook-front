@@ -1,5 +1,5 @@
 <template>
-    <div class="dropdown" v-if="this.isUserMenu" @click.stop="this.isUserMenu">
+    <div class="dropdown" v-show="this.isUserMenu" @click.stop="this.isUserMenu">
         <div class="user">
             <img height="50" width="50" src="https://i.imgur.com/eaTPwsU.png" alt="">
             <span>Полещенков Михаил Юрьевич</span>

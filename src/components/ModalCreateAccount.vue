@@ -1,18 +1,24 @@
 <template>
-    <div class="container">
-        <div class="wrapper">
+    <div class="container" v-show="isShow" @click.stop="$emit('setIsShow', false)">
+        <div class="wrapper" @click.stop>
             <div class="header">
                 <p>Create account</p>
                 <font-awesome-icon
+                    @click="$emit('setIsShow', false)"
                     :icon="['fas', 'times']" 
                     :style="{
                         background: 'none', 
                         color: '#959595', 
                         fontSize: '24px', 
                         cursor: 'pointer'
-                    }" />
+                    }"
+                />
             </div>
+
+
             <divider/>
+
+
             <div class="content">
                 <form>
                     <div class="firstname-lastname">
@@ -25,13 +31,15 @@
                             padding="10px" margin="5px 0 5px 5px"
                         />
                     </div>
+
                     <my-input 
                         placeholder="Middlename"
                         padding="10px" margin="5px 0"
                     />
 
-                    
+
                     <divider width="50%"/>
+
 
                     <my-input 
                         placeholder="Email address"
@@ -42,6 +50,7 @@
                         padding="10px" margin="5px 0"
                     />
 
+
                     <divider width="50%"/>
 
                     
@@ -49,7 +58,7 @@
                         <p>Date of Birth</p>
                         <div>
                             <select>
-                                <option v-for="(item, index) in 31" :key="item">{{ index + 1 }}</option>
+                                <option v-for="(item, index) in dateOfBirth.days" :key="item">{{ index + 1 }}</option>
                             </select>
                             <select>
                                 <option v-for="month in dateOfBirth.months" :key="month">{{ month }}</option>
@@ -64,8 +73,12 @@
                     <div class="wrapper-sex">
                         <p>Sex</p>
                         <div class="sex">
-                            <label>Man <input name="sexRadio" value="man" type="radio"/></label>
-                            <label>Woman <input name="sexRadio" value="woman" type="radio"/></label>
+                            <label>
+                                Man <input name="sexRadio" value="man" type="radio"/>
+                            </label>
+                            <label>
+                                Woman <input name="sexRadio" value="woman" type="radio"/>
+                            </label>
                         </div>
                     </div>
 
@@ -81,17 +94,27 @@
 <script>
 import MyButton from './UI/MyButton.vue'
 import MyInput from './UI/MyInput.vue'
+
+
 export default {
   components: { MyInput, MyButton },
+
+  props: {
+      isShow: {
+          type: Boolean,
+          default: () => false
+      }
+  },
 
   data() {
       return {
           dateOfBirth: {
+              days: 31,
               months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
               years: () => {
                   let arr = []
                   
-                  for (let i = 1905; i < new Date().getFullYear(); i++) {
+                  for (let i = 1900; i < new Date().getFullYear(); i++) {
                     arr[i] = i + 1
                   }
                   return arr.filter(el => el !== undefined)
@@ -135,7 +158,7 @@ export default {
         text-align: center;
         background: none;
         margin: 0;
-        font-size: 33px;
+        font-size: 30px;
     }
 
     .content {background: none}
@@ -150,7 +173,7 @@ export default {
 
     .dateOfBirth {
         height: 50px;
-        margin: 10px 0;
+        margin: 5px 0;
         background: none;
     }
     .dateOfBirth p {
@@ -180,7 +203,7 @@ export default {
     .wrapper-sex {
         background: none;
         height: 55px;
-        margin: 10px 0;
+        margin: 15px 0;
     }
 
     .wrapper-sex p {

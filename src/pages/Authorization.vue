@@ -2,10 +2,10 @@
     <div class="authorization">
         <div class="logo-form">
             <logo fontSize="50px" />
-            <form-login />
+            <form-login @setIsShow="setIsModalCreateAccount" />
         </div>
         <my-footer />
-        <modal-create-account />
+        <modal-create-account :isShow="isModalCreateAccount" @setIsShow="setIsModalCreateAccount" />
     </div>
 </template>
 
@@ -16,7 +16,19 @@ import MyFooter from "@/components/MyFooter"
 import ModalCreateAccount from "@/components/ModalCreateAccount"
 
 export default {
-    components: { FormLogin, Logo, MyFooter, ModalCreateAccount }
+    components: { FormLogin, Logo, MyFooter, ModalCreateAccount },
+
+    data() {
+        return {
+            isModalCreateAccount: false
+        }
+    },
+
+    methods: {
+        setIsModalCreateAccount(bool) {
+            this.isModalCreateAccount = bool
+        }
+    }
 }
 </script>
 
