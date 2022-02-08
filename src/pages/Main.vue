@@ -10,12 +10,96 @@
             </div>
             <div class="content-organization">
                 <div class="navbar-menu-organization">
-                    Main
+                    <div>
+                        <my-button 
+                            width="auto" 
+                            padding="15px 25px"
+                            backgroundColor="C8EAC9"
+                            color="#3F3F3F"
+                            margin="0 0 0 15px"
+                        >
+                            Main page
+                        </my-button>
+                    </div><div>
+                        <my-button 
+                            width="auto" 
+                            padding="15px 25px"
+                            backgroundColor="C8EAC9"
+                            color="#3F3F3F"
+                            margin="0 0 0 15px"
+                        >
+                            Main page
+                        </my-button>
+                    </div><div>
+                        <my-button 
+                            width="auto" 
+                            padding="15px 25px"
+                            backgroundColor="C8EAC9"
+                            color="#3F3F3F"
+                            margin="0 0 0 15px"
+                        >
+                            Main page
+                        </my-button>
+                    </div><div>
+                        <my-button 
+                            width="auto" 
+                            padding="15px 25px"
+                            backgroundColor="C8EAC9"
+                            color="#3F3F3F"
+                            margin="0 0 0 15px"
+                        >
+                            Main page
+                        </my-button>
+                    </div><div>
+                        <my-button 
+                            width="auto" 
+                            padding="15px 25px"
+                            backgroundColor="C8EAC9"
+                            color="#3F3F3F"
+                            margin="0 0 0 15px"
+                        >
+                            Main page
+                        </my-button>
+                    </div><div>
+                        <my-button 
+                            width="auto" 
+                            padding="15px 25px"
+                            backgroundColor="C8EAC9"
+                            color="#3F3F3F"
+                            margin="0 0 0 15px"
+                        >
+                            Main page
+                        </my-button>
+                    </div>
+                    <div>
+                        <my-button 
+                            width="auto" 
+                            backgroundColor="rgba(188, 200, 242, 0.51)"
+                            border="2px solid rgba(69, 204, 247, 0.7)"
+                            color="#3D49B1"
+                            padding="8px 25px"
+                            margin="0 0 0 20px"
+                        >
+                        <font-awesome-icon
+                            :icon="['fas', 'plus']" 
+                            :style="{background: 'none'}" />
+                        </my-button>
+                    </div>
                 </div>
                 <div class="sidebar-organization">
                     <div class="left-menu">
                         <div>
-                            1
+                            <my-button 
+                                width="auto" 
+                                backgroundColor="rgba(188, 200, 242, 0.51)"
+                                border="2px solid rgba(69, 204, 247, 0.7)"
+                                color="#3D49B1"
+                                padding="8px 30px"
+                            >
+                                <font-awesome-icon
+                                    :icon="['fas', 'plus']" 
+                                    :style="{background: 'none'}" />
+                            </my-button>
                         </div>
                     </div>
                     <div class="up-menu">2</div>
@@ -86,7 +170,11 @@ export default {
         background: white;
         box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
-        padding: 10px;
+        padding: 15px 0;
+
+        display: flex;
+        align-items: center;
+        flex-direction: row;
     }
 
 
@@ -109,7 +197,11 @@ export default {
         background: white;
         box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
-        padding: 10px;
+        padding: 15px;
+
+        
+        display: flex;
+        justify-content: center;
     }
     .up-menu { 
         grid-area: up-menu;
