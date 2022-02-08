@@ -15,7 +15,26 @@
         </div>
         <div class="btn-user-menu">
             <div>
-                <my-button 
+                <button @click="changeIsUserMenu" class="user-button-open-menu">
+                    <img 
+                        class="user-logo" 
+                        height="29" 
+                        width="29" 
+                        src="https://i.imgur.com/eaTPwsU.png" 
+                        alt=""
+                    >
+                    <span class="user-name">name</span>
+
+                    <font-awesome-icon
+                        v-if="isUserMenu"
+                        :icon="['fas', 'sort-up']" 
+                        :style="{background: 'none'}" />
+                    <font-awesome-icon
+                        v-else
+                        :icon="['fas', 'sort-down']" 
+                        :style="{background: 'none'}" />
+                </button>
+                <!-- <my-button 
                     backgroundColor="rgba(151, 158, 222, 0.19)"
                     borderRadius="50px"
                     color="rgba(56, 88, 152, 0.81)"
@@ -26,11 +45,9 @@
                     alignItems="center"
                     position="relative"
                     @click="changeIsUserMenu"
-            >
+                >
                 <img 
                     class="user-logo" 
-                    height="29" 
-                    width="29" 
                     src="https://i.imgur.com/eaTPwsU.png" 
                     alt=""
                 >
@@ -45,7 +62,7 @@
                     :icon="['fas', 'sort-down']" 
                     :style="{background: 'none'}" />
 
-                </my-button>
+                </my-button> -->
                 <dropdown
                     @change="changeIsUserMenu"
                     :isUserMenu="isUserMenu"/>
@@ -87,18 +104,13 @@ export default {
         height: 55px;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
 
-        padding: 0 20px;
+        padding: 10px 20px;
 
         background: white;
 
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
-    
-
-    .user-logo {
-        border-radius: 50%;
     }
 
     .logo {
@@ -115,6 +127,29 @@ export default {
     .logo-word-book {
         color: #3075FC;
     }
+
+
+
+    .user-button-open-menu {
+        background-color: rgba(151, 158, 222, 0.19);
+        border-radius: 50px;
+        color: rgba(56, 88, 152, 0.81);
+        padding: 6px 10px;
+        outline: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+    }
+    
+
+    .user-logo {
+        border-radius: 50%;
+        height: 29px;
+        width: 29px;
+    }
+
 
     .user-name {
         margin: 0 6px;
@@ -143,6 +178,17 @@ export default {
             font-family: 'Righteous', cursive;
 
             font-size: 32px;
+        }
+
+        .user-button-open-menu {
+            padding: 8px 12px;
+
+            font-size: 18px;
+        }
+
+        .user-logo {
+            height: 34px;
+            width: 34px;
         }
         
 
