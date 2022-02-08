@@ -5,7 +5,7 @@
             <span>Полещенков Михаил Юрьевич</span>
         </div>
         <div class="divider"/>
-        <div class="exit">
+        <div class="exit" @click="logout">
             <font-awesome-icon
                 :icon="['fas', 'sign-out-alt']" 
                 :style="{background: 'none', fontSize: '24px'}" />
@@ -20,6 +20,14 @@ export default {
         isUserMenu: {
             type: Boolean,
             default: () => false
+        }
+    },
+
+    methods: {
+        logout() {
+            // added auto closed this dropdown
+            localStorage.removeItem('token')
+            this.$router.push('/login')
         }
     }
 }
