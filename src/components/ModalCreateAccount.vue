@@ -16,55 +16,55 @@
             </div>
 
 
-            <divider/>
+            <divider />
 
 
             <div class="content">
                 <form>
                     <div class="firstname-lastname">
-                        <my-input
-                            placeholder="Firstname"
-                            padding="10px" margin="5px 5px 5px 0" 
+                        <input
+                            :style="{margin: '0 5px 0 0'}"
+                            class="form-control-input" 
+                            placeholder="Firstname" 
                         />
-                        <my-input 
-                            placeholder="Lastname"
-                            padding="10px" margin="5px 0 5px 5px"
+                        <input
+                            :style="{margin: '0 0 0 5px'}"
+                            class="form-control-input" 
+                            placeholder="Lastname" 
                         />
                     </div>
 
-                    <my-input 
-                        placeholder="Middlename"
-                        padding="10px" margin="5px 0"
+  
+                    <input 
+                        class="form-control-input" 
+                        placeholder="Middlename" 
                     />
-
 
                     <divider width="50%"/>
 
-
-                    <my-input 
-                        placeholder="Email address"
-                        padding="10px" margin="5px 0"
+  
+                    <input 
+                        class="form-control-input" 
+                        placeholder="Email address" 
                     />
-                    <my-input 
-                        placeholder="Password"
-                        padding="10px" margin="5px 0"
+                    <input 
+                        class="form-control-input" 
+                        placeholder="Password" 
                     />
-
 
                     <divider width="50%"/>
-
                     
                     <div class="dateOfBirth">
                         <p>Date of Birth</p>
                         <div>
                             <select>
-                                <option v-for="(item, index) in dateOfBirth.days" :key="item">{{ index + 1 }}</option>
+                                <option v-for="(item, index) in dateOfBirth.days" :value="item" :key="item">{{ index + 1 }}</option>
                             </select>
                             <select>
-                                <option v-for="month in dateOfBirth.months" :key="month">{{ month }}</option>
+                                <option v-for="month in dateOfBirth.months" :value="month" :key="month">{{ month }}</option>
                             </select>
                             <select>
-                                <option v-for="year in dateOfBirth.years()" :key="year">{{ year }}</option>
+                                <option v-for="year in dateOfBirth.years()" :value="year" :key="year">{{ year }}</option>
                             </select>
                         </div>
                     </div>
@@ -82,9 +82,9 @@
                         </div>
                     </div>
 
-                    <my-button margin="25px 0 10px 0">
+                    <button class="form-control-button-create-account">
                         Create account
-                    </my-button>
+                    </button>
                 </form>
             </div>
          </div>
@@ -164,35 +164,42 @@ export default {
         font-size: 30px;
     }
 
-    .content {background: none}
-    form {background: none}
 
     .firstname-lastname {
         display: flex;
-        background: none;
+        margin: 5px 0 0 0 ;
+    }
+
+    /* S T Y L E   F O R   I N P U T S */
+
+    .form-control-input {
+        width: 100%;
+        padding: 12px; 
+        margin: 10px 0;
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid #c4c4c4;
+        background: #FDFDFF;
     }
 
 
 
     .dateOfBirth {
-        height: 50px;
-        margin: 5px 0;
-        background: none;
+        height: auto;
+        margin: 5px 0
     }
     .dateOfBirth p {
         margin: 0 0 2px 0;
         font-size: 12px;
-        background: none;
     }
     .dateOfBirth div {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: none;
     }
 
     .dateOfBirth div select {
-        height: 35px;
+        height: 41px;
         width: 30%;
         padding: 0 5px;
         background: none;
@@ -204,13 +211,11 @@ export default {
 
 
     .wrapper-sex {
-        background: none;
-        height: 55px;
+        height: auto;
         margin: 15px 0;
     }
 
     .wrapper-sex p {
-        background: none;
         margin: 0 0 2px 0;
         font-size: 14px;
     }
@@ -218,15 +223,13 @@ export default {
 
     .sex {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
-        background: none;
-        height: 35px;
+        height: 41px;
     }
 
     .sex label {
         cursor: pointer;
-        background: none;
         
         display: flex;
         align-items: center;
@@ -234,10 +237,32 @@ export default {
         border: 1px solid #c4c4c4;
         color: #525252;
         height: 100%;
-        width: 35%;
+        width: 45%;
 
         border-radius: 5px;
     }
+
+
+    /* S T Y L E   F O R   B U T T O N S */
+
+    .form-control-button-create-account {
+        background-color: #A94CE2;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 13px;
+        border-radius: 5px;
+        outline: none;
+        width: 100%;
+        height: auto;
+        font-size: 18px;
+        margin: 20px 0 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
 
     /* M E D I A*/
 
