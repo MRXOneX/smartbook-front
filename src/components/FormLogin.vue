@@ -262,6 +262,9 @@ export default {
             color: red;
             font-size: 15px
         }
+        .disabled {
+            padding: 13px;
+        }
 
     }
 </style>
