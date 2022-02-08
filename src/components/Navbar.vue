@@ -1,7 +1,7 @@
 <template>
     <div class="navbar">
         <div class="logo">
-            <my-button padding="0" backgroundColor="#F0F2F5">
+            <my-button padding="0" backgroundColor="white">
                 <logo />
             </my-button>
         </div>
@@ -75,6 +75,7 @@ export default {
 <style scoped>
     .navbar {
         position: fixed;
+        z-index: 1;
         top: 0;
         left: 0;
         width: 100%;

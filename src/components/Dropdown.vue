@@ -36,7 +36,7 @@ export default {
 <style scoped>
     .dropdown {
         position: absolute;
-        z-index: 1;
+        z-index: 1001;
         right: 20px;
         top:65px ;
         border-radius: 5px;
