@@ -46,6 +46,7 @@ export default {
     },
 
     methods: {
+        async log() {},
         async login() {
             await axios.post('https://smartbook-1v.herokuapp.com/users/login', {
                 email: "qwerty@mail.ru",
