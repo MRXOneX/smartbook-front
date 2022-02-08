@@ -42,6 +42,7 @@
 
                 </my-button>
                 <dropdown
+                    @change="changeIsUserMenu"
                     :isUserMenu="isUserMenu"/>
             </div>
         </div>

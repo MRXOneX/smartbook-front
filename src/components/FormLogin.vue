@@ -1,19 +1,23 @@
 <template>
     <div class="wrapper">
-        <form @submit.prevent="">
+        <form @submit.prevent="login">
 
             <input
+                type="email"
                 class="form-control-input"
-                v-model="email" 
-                placeholder="Email address or number phone" />
+                v-model="form.email" 
+                placeholder="Email address" />
+
             <input
+                type="password"
                 class="form-control-input"
-                v-model="password" 
+                v-model="form.password" 
                 placeholder="Password"/>
 
-            <button @click="login()" class="form-control-button-login">
+            <button type="submit" class="form-control-button-login">
                 Log in
             </button>
+            
 
         </form>
 
@@ -35,36 +39,41 @@
 <script>
 import axios from 'axios'
 //
-import { required, minLength, email } from 'vuelidate/lib/validators'
+import useValidate from "@vuelidate/core";
+import { required, email, minLength } from "@vuelidate/validators";
 
 
 export default {
     data() {
         return {
-            email: '',
-            password: '',
-            isLoading: true
+            v$: useValidate(),
+            form: {
+                email: '',
+                password: ''
+            }
         }
     },
 
-    validators: {
-        email: {
-            required,
-            email,
-            minLength: minLength(5)
+    validations() {
+        return {
+            form: {
+                email: {required, email},
+                password: {required}
+            }
         }
     },
+
 
     methods: {
         async login() {
             await axios.post('https://smartbook-1v.herokuapp.com/users/login', {
-                email: this.email,
-                password: this.password
-            }).then(res => {
-                if (res.data.token) {
-                    localStorage.setItem('token', res.data.token)
-                    this.$router.push('/')
-                }
+                    email: this.form.email,
+                    password: this.form.password
+                }).then(res => {
+                    if (res.data.token) {
+                        localStorage.setItem('token', res.data.token)
+                        this.$router.push('/')
+                    }
             }).catch(e => console.log(e))
         }
     }
@@ -140,6 +149,14 @@ export default {
         width: 100%;
         height: auto;
         font-size: 18px;
+    }
+
+
+    /* S T Y L E   F O R   V A L I D A T I O N */
+
+    .error {
+        border: 1px solid red;
+        box-shadow: 0px 0px 4px rgba(255, 11, 11, 0.25);
     }
 
 

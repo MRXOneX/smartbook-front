@@ -92,12 +92,15 @@
 </template>
 
 <script>
+import { validationMixin } from 'vuelidate'
+//
 import MyButton from './UI/MyButton.vue'
 import MyInput from './UI/MyInput.vue'
 
 
 export default {
   components: { MyInput, MyButton },
+  mixins: [validationMixin],
 
   props: {
       isShow: {
