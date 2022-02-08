@@ -237,21 +237,21 @@ export default {
         }
         
         .form-control-input {
-            margin: 13px 0;
-            padding: 20px 15px; 
+            margin: 15px 0;
+            padding: 22px 15px; 
             font-size: 20px;
         }
         
         .form-control-button-register {
-            margin: 0 0 13px 0;
-            padding: 18px 13px;
-            font-size: 22px;
+            margin: 0 0 15px 0;
+            padding: 20px 13px;
+            font-size: 23px;
         }
 
         .form-control-button-login {
-            margin: 13px 0;
-            padding: 18px 13px;
-            font-size: 22px;
+            margin: 15px 0;
+            padding: 20px 13px;
+            font-size: 23px;
         }
 
         .forgot {
@@ -263,7 +263,7 @@ export default {
             font-size: 15px
         }
         .disabled {
-            padding: 13px;
+            padding: 14px;
         }
 
     }
