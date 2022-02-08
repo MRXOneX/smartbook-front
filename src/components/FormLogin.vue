@@ -1,45 +1,41 @@
 <template>
     <div class="wrapper">
         <form @submit.prevent="">
-            <my-input 
-                v-model="email"
 
-                width="100%" 
-                padding="15px 15px" 
-                margin="10px 0"
-                placeholder="Email address or number phone"
-            />
-            <my-input 
-                v-model="password"
+            <input
+                class="form-control-input"
+                v-model="email" 
+                placeholder="Email address or number phone" />
+            <input
+                class="form-control-input"
+                v-model="password" 
+                placeholder="Password"/>
 
-                width="100%" 
-                padding="15px 15px" 
-                margin="10px 0" 
-                placeholder="Password"
-            />
-
-            <my-button @click="login()" margin="10px 0" >
+            <button @click="login()" class="form-control-button-login">
                 Log in
-            </my-button>
+            </button>
+
         </form>
-        <span 
-            class="forgot"
-            >forgotten password?</span>
+
+        <span class="forgot">
+            forgotten password?
+        </span>
+
         <div class="divider"/>
-        <my-button
+
+        <button 
             @click="$emit('setIsShow', true)"
-            backgroundColor="#E4B9FE" 
-            margin="15px 0 10px 0" 
+            class="form-control-button-register"
         >
             Create new account
-        </my-button>
+        </button>
     </div>
 </template>
 
 <script>
 import axios from 'axios'
 //
-import { required, minLength, between, email } from 'vuelidate/lib/validators'
+import { required, minLength, email } from 'vuelidate/lib/validators'
 
 
 export default {
@@ -94,12 +90,66 @@ export default {
     }
 
     .divider {
-        margin: 15px 0;
+        margin: 20px 0;
         width: 100%;
         height: 1px;
         background-color: #c4c4c4;
         border-radius: 20px;
     }
+
+
+    /* S T Y L E   F O R   I N P U T S */
+
+    .form-control-input {
+        width: 100%;
+        padding: 15px; 
+        margin: 10px 0;
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid #c4c4c4;
+        background: #FDFDFF;
+    }
+
+
+
+    /* S T Y L E   F O R   B U T T O N S */
+    .form-control-button-login {
+        background-color: #A94CE2;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 5px;
+        outline: none;
+        width: 100%;
+        height: auto;
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+
+    .form-control-button-register {
+        background-color: #E4B9FE;
+        margin: 0 0 10px 0;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 5px;
+        outline: none;
+        width: 100%;
+        height: auto;
+        font-size: 18px;
+    }
+
+
+
+
+
+
+
+
+
 
     /* M E D I A */
 
