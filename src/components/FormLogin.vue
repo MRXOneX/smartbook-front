@@ -3,16 +3,28 @@
         <form @submit.prevent="login">
 
             <input
+                :class="v$.form.email.$error ? 'error' : ''"
                 type="email"
                 class="form-control-input"
                 v-model="form.email" 
                 placeholder="Email address" />
 
+            <div class="error-text" v-for="(error, index) of v$.form.email.$errors" :key="index">
+                <div class="error-msg">{{ error.$message }}</div>
+            </div>
+
+            
+
             <input
+                :class="v$.form.password.$error ? 'error' : ''"
                 type="password"
                 class="form-control-input"
                 v-model="form.password" 
                 placeholder="Password"/>
+
+            <div class="error-text" v-for="(error, index) of v$.form.password.$errors" :key="index">
+                <div class="error-msg">{{ error.$message }}</div>
+            </div>
 
             <button type="submit" class="form-control-button-login">
                 Log in
@@ -39,14 +51,14 @@
 <script>
 import axios from 'axios'
 //
-import useValidate from "@vuelidate/core";
+import useVuelidate from "@vuelidate/core";
 import { required, email, minLength } from "@vuelidate/validators";
 
 
 export default {
     data() {
         return {
-            v$: useValidate(),
+            v$: useVuelidate(),
             form: {
                 email: '',
                 password: ''
@@ -58,7 +70,7 @@ export default {
         return {
             form: {
                 email: {required, email},
-                password: {required}
+                password: {required, minLength: minLength(6)}
             }
         }
     },
@@ -66,7 +78,9 @@ export default {
 
     methods: {
         async login() {
-            await axios.post('https://smartbook-1v.herokuapp.com/users/login', {
+            this.v$.form.$touch()
+            if (!this.v$.form.$error) {
+                await axios.post('https://smartbook-1v.herokuapp.com/users/login', {
                     email: this.form.email,
                     password: this.form.password
                 }).then(res => {
@@ -74,7 +88,8 @@ export default {
                         localStorage.setItem('token', res.data.token)
                         this.$router.push('/')
                     }
-            }).catch(e => console.log(e))
+                }).catch(e => console.log(e))
+            }
         }
     }
 }
@@ -154,9 +169,18 @@ export default {
 
     /* S T Y L E   F O R   V A L I D A T I O N */
 
+    
     .error {
         border: 1px solid red;
         box-shadow: 0px 0px 4px rgba(255, 11, 11, 0.25);
+    }
+    .error::placeholder {
+        color: red;
+    }
+
+    .error-text {
+        color: red;
+        font-size: 12px
     }
 
 
