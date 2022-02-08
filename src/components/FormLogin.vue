@@ -50,6 +50,12 @@ export default {
             await axios.post('https://smartbook-1v.herokuapp.com/users/login', {
                 email: "qwerty@mail.ru",
                 password: 'qwerty'
+            }, {
+                headers:{    
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*' 
+                        }
             }).then(res => console.log(res)).catch(e => console.log(e))
         }
     }
