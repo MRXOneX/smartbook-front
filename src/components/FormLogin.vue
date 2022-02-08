@@ -30,10 +30,7 @@
                 :disabled="form.isLogin" 
                 type="submit" 
                 class="form-control-button-login"
-                :style="{
-                    backgroundColor: form.isLogin ? 'rgba(169, 76, 226, 0.2)' : '',
-                    padding: form.isLogin ? '6px' : ''
-                }"
+                :class="form.isLogin && 'disabled'"
             >   
                 <span v-if="!form.isLogin">
                     Log in
@@ -187,6 +184,12 @@ export default {
     }
 
 
+    .disabled {
+        background-color: rgba(169, 76, 226, 0.2);
+        padding: 6px;
+    }
+
+
 
 
     /* S T Y L E   F O R   V A L I D A T I O N */
@@ -257,7 +260,7 @@ export default {
 
         .error-text {
             color: red;
-            font-size: 14px
+            font-size: 15px
         }
 
     }
