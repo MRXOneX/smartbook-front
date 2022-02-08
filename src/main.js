@@ -1,4 +1,6 @@
 import { createApp } from 'vue'
+//
+import Vuelidate from 'vuelidate'
 // vue-fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSortDown, faSortUp, faSignOutAlt, faTimes, faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -30,4 +32,8 @@ components.forEach(component => {
 
 
 
-app.use(router).use(store).mount('#app')
+app
+    .use(Vuelidate)
+    .use(router)
+    .use(store)
+    .mount('#app')

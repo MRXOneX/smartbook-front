@@ -89,6 +89,7 @@ export default {
                 justifyContent: this.justifyContent,
                 alignItems: this.alignItems,
                 position: this.position,
+                opacity: this.disabled && '.5s'
             }
         }
     }

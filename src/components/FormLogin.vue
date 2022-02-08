@@ -3,6 +3,7 @@
         <form @submit.prevent="">
             <my-input 
                 v-model="email"
+
                 width="100%" 
                 padding="15px 15px" 
                 margin="10px 0"
@@ -10,6 +11,7 @@
             />
             <my-input 
                 v-model="password"
+
                 width="100%" 
                 padding="15px 15px" 
                 margin="10px 0" 
@@ -27,7 +29,7 @@
         <my-button
             @click="$emit('setIsShow', true)"
             backgroundColor="#E4B9FE" 
-            margin="15px 0" 
+            margin="15px 0 10px 0" 
         >
             Create new account
         </my-button>
@@ -36,20 +38,32 @@
 
 <script>
 import axios from 'axios'
+//
+import { required, minLength, between, email } from 'vuelidate/lib/validators'
+
 
 export default {
     data() {
         return {
             email: '',
-            password: ''
+            password: '',
+            isLoading: true
+        }
+    },
+
+    validators: {
+        email: {
+            required,
+            email,
+            minLength: minLength(5)
         }
     },
 
     methods: {
         async login() {
             await axios.post('https://smartbook-1v.herokuapp.com/users/login', {
-                email: "qwerty@mail.ru",
-                password: 'qwerty'
+                email: this.email,
+                password: this.password
             }).then(res => {
                 if (res.data.token) {
                     localStorage.setItem('token', res.data.token)
@@ -65,7 +79,7 @@ export default {
     .wrapper {
         padding: 10px 15px;
         width: 340px;
-        height: 310px;
+        height: auto;
         background-color: white;
         box-shadow: 0px 0px 5px rgba(107, 191, 255, 0.25);
         border-radius: 10px;

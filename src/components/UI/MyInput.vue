@@ -1,5 +1,8 @@
 <template>
     <input
+        :value="modelValue"
+        @input="updateInput"
+
         :type="this.type" 
         :placeholder="this.placeholder" 
         :style="styleInput">
@@ -10,6 +13,8 @@ export default {
     name: "my-input",
 
     props: {
+        modelValue: [String, Number],
+
 
         type: {
             type: String, 
@@ -60,6 +65,12 @@ export default {
                 width: this.width,
                 margin: this.margin
             }
+        }
+    },
+
+    methods: {
+        updateInput(event) {
+            this.$emit('update:modelValue', event.target.value)
         }
     }
 }
