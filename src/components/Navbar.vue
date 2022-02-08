@@ -83,6 +83,8 @@ export default {
 
         padding: 0 20px;
 
+        background: white;
+
         display: flex;
         align-items: center;
         justify-content: space-between;

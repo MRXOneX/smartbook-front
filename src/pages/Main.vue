@@ -4,7 +4,7 @@
             <div class="header-organization">
                 <div class="cover">
                     <div>
-                        <img src="https://i.imgur.com/eaTPwsU.png"  alt="">
+                        <img src="https://i.imgur.com/nU9JYHp.png"  alt="">
                     </div>
                 </div>
             </div>
@@ -70,6 +70,8 @@ export default {
     .cover div img {
         width: 95%;
         height: 95%;
+
+        border-radius: 50%;
     }
 
     .main-menu-organization {
