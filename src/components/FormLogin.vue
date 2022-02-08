@@ -237,19 +237,19 @@ export default {
         }
         
         .form-control-input {
-            margin: 15px 0;
+            margin: 13px 0;
             padding: 22px 15px; 
             font-size: 20px;
         }
         
         .form-control-button-register {
-            margin: 0 0 15px 0;
+            margin: 0 0 14px 0;
             padding: 20px 13px;
             font-size: 23px;
         }
 
         .form-control-button-login {
-            margin: 15px 0;
+            margin: 14px 0;
             padding: 20px 13px;
             font-size: 23px;
         }
