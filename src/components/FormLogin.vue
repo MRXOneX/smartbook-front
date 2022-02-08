@@ -123,7 +123,6 @@ export default {
         border-radius: 10px;
     }
     
-    form {background: none;}
 
     .forgot {
         color: #252F8B;
@@ -230,10 +229,30 @@ export default {
     /* 1600 */
     @media screen and (min-width: 1600px) {
         .wrapper {
-            width: 420px;
+            width: 435px;
 
-            /* style for text */
-            font-size: 44px;
+        }
+        
+        .form-control-input {
+            margin: 13px 0;
+            padding: 20px 15px; 
+            font-size: 20px;
+        }
+        
+        .form-control-button-register {
+            margin: 0 0 13px 0;
+            padding: 18px 13px;
+            font-size: 22px;
+        }
+
+        .form-control-button-login {
+            margin: 13px 0;
+            padding: 18px 13px;
+            font-size: 22px;
+        }
+
+        .forgot {
+            font-size: 15px;
         }
     }
 </style>
