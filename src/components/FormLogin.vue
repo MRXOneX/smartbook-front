@@ -26,8 +26,19 @@
                 <div class="error-msg">{{ error.$message }}</div>
             </div>
 
-            <button type="submit" class="form-control-button-login">
-                Log in
+            <button 
+                :disabled="form.isLogin" 
+                type="submit" 
+                class="form-control-button-login"
+                :style="{
+                    backgroundColor: form.isLogin ? 'rgba(169, 76, 226, 0.2)' : '',
+                    padding: form.isLogin ? '6px' : ''
+                }"
+            >   
+                <span v-if="!form.isLogin">
+                    Log in
+                </span>
+                <img v-else src="../assets/loading.gif" height="35" width="35" :style="{background: 'none'}" alt="">
             </button>
             
 
@@ -61,7 +72,8 @@ export default {
             v$: useVuelidate(),
             form: {
                 email: '',
-                password: ''
+                password: '',
+                isLogin: false
             }
         }
     },
@@ -77,9 +89,14 @@ export default {
 
 
     methods: {
+        setIsLogin(bool) {
+            this.form.isLogin = bool
+        },
+
         async login() {
             this.v$.form.$touch()
             if (!this.v$.form.$error) {
+                this.setIsLogin(true)
                 await axios.post('https://smartbook-1v.herokuapp.com/users/login', {
                     email: this.form.email,
                     password: this.form.password
@@ -89,6 +106,7 @@ export default {
                         this.$router.push('/')
                     }
                 }).catch(e => console.log(e))
+                .finally(() => this.setIsLogin(false))
             }
         }
     }
@@ -142,13 +160,16 @@ export default {
         color: white;
         border: none;
         cursor: pointer;
-        padding: 15px;
+        padding: 13px;
         border-radius: 5px;
         outline: none;
         width: 100%;
         height: auto;
         font-size: 18px;
         margin: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
 
@@ -158,7 +179,7 @@ export default {
         color: white;
         border: none;
         cursor: pointer;
-        padding: 15px;
+        padding: 13px;
         border-radius: 5px;
         outline: none;
         width: 100%;
@@ -198,6 +219,7 @@ export default {
         .wrapper {
             background: none;
             box-shadow: none;
+            width: 310px;
         }
     }
 </style>
