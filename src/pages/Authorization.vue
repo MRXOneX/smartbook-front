@@ -1,7 +1,7 @@
 <template>
     <div class="authorization">
         <div class="logo-form">
-            <logo fontSize="50px" />
+            <logo  />
             <form-login @setIsShow="setIsModalCreateAccount" />
         </div>
         <my-footer />
@@ -61,6 +61,11 @@ export default {
         width: 900px;
     }
 
+
+
+
+    /* M E D I A */
+
     @media screen and (max-width: 900px) {
         .logo-form {
             width: 700px
@@ -68,15 +73,18 @@ export default {
         
     }
 
-
-
-    /* M E D I A */
-
     @media screen and (max-width: 940px) {
         .logo-form {
             flex-direction: column;
             justify-content: space-evenly;
             width: auto;
+        }
+    }
+
+
+    @media  screen and (min-width: 1600px) {
+        .logo-form {
+            width: 1150px;
         }
     }
  

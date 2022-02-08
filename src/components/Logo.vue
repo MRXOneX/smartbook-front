@@ -1,5 +1,5 @@
 <template>
-    <div class="logo" :style="logoStyle">
+    <div class="logo">
         <span
             class="logo-word-smart">Smart</span>
         <span
@@ -10,12 +10,6 @@
 
 <script>
 export default {
-    props: {
-        fontSize: {
-            type: String,
-            default: () => "24px"
-        }
-    },
 
 
     data() {
@@ -34,6 +28,8 @@ export default {
         /* style for text */
         font-weight: 400;
         font-family: 'Righteous', cursive;
+
+        font-size: 50px;
     }
 
     .logo-word-smart {
@@ -41,5 +37,14 @@ export default {
     }
     .logo-word-book {
         color: #3075FC;
+    }
+
+
+    /* M E D I A */
+
+    @media screen and (min-width: 1600px) {
+        .logo {
+            font-size: 70px;
+        }
     }
 </style>

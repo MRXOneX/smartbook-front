@@ -217,11 +217,23 @@ export default {
 
     /* M E D I A */
 
+    /* 400 */
     @media screen and (max-width: 400px) {
         .wrapper {
             background: none;
             box-shadow: none;
             width: 310px;
+        }
+    }
+
+
+    /* 1600 */
+    @media screen and (min-width: 1600px) {
+        .wrapper {
+            width: 420px;
+
+            /* style for text */
+            font-size: 44px;
         }
     }
 </style>

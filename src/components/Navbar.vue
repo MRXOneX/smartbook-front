@@ -106,9 +106,18 @@ export default {
 
     /* M E D I A*/
 
+    /* 450 */
     @media screen and (max-width: 450px) {
         .logo {
             display: none;
+        }
+    }
+
+
+
+    @media screen and (min-width: 1600px) {
+        .navbar {
+            height: 65px;
         }
     }
 
