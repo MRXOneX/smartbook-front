@@ -254,5 +254,11 @@ export default {
         .forgot {
             font-size: 15px;
         }
+
+        .error-text {
+            color: red;
+            font-size: 14px
+        }
+
     }
 </style>
