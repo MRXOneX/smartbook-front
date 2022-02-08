@@ -2,7 +2,12 @@
     <div class="navbar">
         <div class="logo">
             <my-button padding="0" backgroundColor="white">
-                <logo />
+                <div class="logo">
+                    <span
+                        class="logo-word-smart">Smart</span>
+                    <span
+                        class="logo-word-book">Book</span>
+                </div>
             </my-button>
         </div>
         <div>
@@ -51,12 +56,11 @@
 
 
 <script>
-import Logo from "@/components/Logo"
 import Dropdown from "@/components/Dropdown"
 
 
 export default {
-    components: { Logo, Dropdown },
+    components: { Dropdown },
 
     data() {
         return {
@@ -95,11 +99,24 @@ export default {
 
     .user-logo {
         border-radius: 50%;
-        background: none;
+    }
+
+    .logo {
+        /* style for text */
+        font-weight: 400;
+        font-family: 'Righteous', cursive;
+
+        font-size: 26px;
+    }
+
+    .logo-word-smart {
+        color: #A511FF;
+    }
+    .logo-word-book {
+        color: #3075FC;
     }
 
     .user-name {
-        background: none;
         margin: 0 6px;
     }
 
@@ -119,6 +136,20 @@ export default {
         .navbar {
             height: 65px;
         }
+
+        .logo {
+            /* style for text */
+            font-weight: 400;
+            font-family: 'Righteous', cursive;
+
+            font-size: 32px;
+        }
+        
+
+        .user-name {
+            margin: 0 8px;
+        }
+
     }
 
 </style>
