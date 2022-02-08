@@ -1,7 +1,7 @@
 <template>
     <div class="navbar">
         <div class="logo">
-            <my-button padding="0" backgroundColor="none">
+            <my-button padding="0" backgroundColor="#F0F2F5">
                 <logo />
             </my-button>
         </div>

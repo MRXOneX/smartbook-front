@@ -28,7 +28,7 @@ export default {
     }
 
     .container {
-        width: 1200px;
+        width: 1000px;
         height: 100%;
         margin: 0 auto;
         padding: 70px 10px 20px;
@@ -36,9 +36,15 @@ export default {
 
     /* M E D I A */
 
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1000px) {
         .container {
             width: auto;
+        }
+    }
+
+    @media screen and (min-width: 1600px) {
+        .container {
+            width: 1200px
         }
     }
 </style>
