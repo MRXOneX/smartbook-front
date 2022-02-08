@@ -58,7 +58,14 @@ export default {
         justify-content: space-between;
 
         height: 100%;
-        width: 940px;
+        width: 900px;
+    }
+
+    @media screen and (max-width: 900px) {
+        .logo-form {
+            width: 700px
+        }
+        
     }
 
 

@@ -10,6 +10,7 @@ export default {
     name: "my-input",
 
     props: {
+
         type: {
             type: String, 
             default: () => "text" 

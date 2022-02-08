@@ -1,26 +1,28 @@
 <template>
     <div class="wrapper">
-        <form>
+        <form @submit.prevent="">
             <my-input 
+                v-model="email"
                 width="100%" 
                 padding="15px 15px" 
                 margin="10px 0"
                 placeholder="Email address or number phone"
             />
             <my-input 
+                v-model="password"
                 width="100%" 
                 padding="15px 15px" 
                 margin="10px 0" 
                 placeholder="Password"
             />
 
-            <my-button margin="10px 0" >
+            <my-button @click="login()" margin="10px 0" >
                 Log in
             </my-button>
         </form>
         <span 
             class="forgot"
-            @click="$router.push('#')">forgotten password?</span>
+            >forgotten password?</span>
         <div class="divider"/>
         <my-button
             @click="$emit('setIsShow', true)"
@@ -33,9 +35,24 @@
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
-    
+    data() {
+        return {
+            email: '',
+            password: ''
+        }
+    },
+
+    methods: {
+        async login() {
+            await axios.post('https://smartbook-1v.herokuapp.com/users/login', {
+                email: "qwerty@mail.ru",
+                password: 'qwerty'
+            }).then(res => console.log(res)).catch(e => console.log(e))
+        }
+    }
 }
 </script>
 
