@@ -26,11 +26,14 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #F0F2F5;
   }
 
-  html, body {
+  html {
     height: 100%;
+  }
+  body {
+    height: 100%;
+    background-color: #F0F2F5;
   }
 
   #app {height: 100%;}

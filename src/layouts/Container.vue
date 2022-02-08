@@ -1,7 +1,9 @@
 <template>
-    <navbar />
-    <div class="container">
-        <slot></slot>
+    <div class="wrapper-container">
+        <navbar />
+        <div class="container">
+            <slot></slot>
+        </div>
     </div>
 </template>
 
@@ -13,12 +15,18 @@ import MyFooter from "@/components/MyFooter"
 
 
 export default {
-    components: { Navbar, MyFooter }    
+    components: { Navbar, MyFooter }
 }
 </script>
 
 
 <style scoped>
+
+    .wrapper-container {
+        height: 100%;
+        width: 100%;
+    }
+
     .container {
         width: 1200px;
         height: 100%;
