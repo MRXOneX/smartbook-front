@@ -4,7 +4,7 @@
             <div class="header-organization">
                 <div class="cover">
                     <div>
-                        <img src="https://i.imgur.com/nU9JYHp.png"  alt="">
+                        <img src="https://i.imgur.com/xtqyOga.jpg"  alt="">
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@ export default {
 
     .header-organization {
         width: 100%;
-        height: 300px;
+        height: 400px;
 
         background: white;
         box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
@@ -47,7 +47,7 @@ export default {
 
     .cover {
         width: 100%;
-        height: 200px;
+        height: 300px;
         background: linear-gradient(85.38deg, #A511FF -43.14%, rgba(200, 196, 238, 0.18) 116.17%);
         border-radius: 10px;
         position: relative;
@@ -55,7 +55,7 @@ export default {
 
     .cover div{
         background: white;
-        border-radius: 50%;
+        border-radius: 10px;
         height: 130px;
         width: 130px;
 
@@ -64,14 +64,14 @@ export default {
         justify-content: center;
 
         position: absolute;
-        bottom: -25%;
-        left: 20px
+        left: 20px;
+        bottom: -60px;
     }
     .cover div img {
-        width: 95%;
-        height: 95%;
+        width: 91%;
+        height: 91%;
 
-        border-radius: 50%;
+        border-radius: 10px;
     }
 
     .main-menu-organization {

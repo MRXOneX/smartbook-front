@@ -44,7 +44,7 @@ export default {
 
     @media screen and (min-width: 1600px) {
         .container {
-            width: 1270px
+            width: 1300px
         }
     }
 </style>
