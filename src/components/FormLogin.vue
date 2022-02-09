@@ -102,7 +102,6 @@ export default {
             this.v$.form.$touch()
             if (!this.v$.form.$error) {
                 this.login({email: this.form.email, password: this.form.password})
-                this.$router.push('/')
             }
         }
     }
