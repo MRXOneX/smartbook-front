@@ -23,6 +23,7 @@
                         src="https://i.imgur.com/eaTPwsU.png" 
                         alt=""
                     >
+                    
                     <span class="user-name">name</span>
 
                     <font-awesome-icon
@@ -34,35 +35,7 @@
                         :icon="['fas', 'sort-down']" 
                         :style="{background: 'none'}" />
                 </button>
-                <!-- <my-button 
-                    backgroundColor="rgba(151, 158, 222, 0.19)"
-                    borderRadius="50px"
-                    color="rgba(56, 88, 152, 0.81)"
-                    padding="6px 10px"
-                    outline="none"
-                    border="none"
-                    display="flex"
-                    alignItems="center"
-                    position="relative"
-                    @click="changeIsUserMenu"
-                >
-                <img 
-                    class="user-logo" 
-                    src="https://i.imgur.com/eaTPwsU.png" 
-                    alt=""
-                >
-                <span class="user-name">name</span>
 
-                <font-awesome-icon
-                    v-if="isUserMenu"
-                    :icon="['fas', 'sort-up']" 
-                    :style="{background: 'none'}" />
-                <font-awesome-icon
-                    v-else
-                    :icon="['fas', 'sort-down']" 
-                    :style="{background: 'none'}" />
-
-                </my-button> -->
                 <dropdown
                     @change="changeIsUserMenu"
                     :isUserMenu="isUserMenu"/>
