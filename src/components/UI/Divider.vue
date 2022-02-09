@@ -36,7 +36,7 @@ export default {
 
     @media screen and (min-width: 1600px) {
         .divider {
-            margin: 15px;
+            margin: 15px 0;
         }
     }
 </style>
