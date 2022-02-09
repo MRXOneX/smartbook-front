@@ -220,7 +220,7 @@ export default {
     /* M E D I A */
 
     /* 400 */
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 420px) {
         .wrapper {
             background: none;
             box-shadow: none;

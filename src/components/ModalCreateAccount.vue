@@ -391,9 +391,9 @@ export default {
     /* M E D I A*/
 
     /* 360 */
-    @media screen and (max-width: 360px) {
+    @media screen and (max-width: 420px) {
         .wrapper {
-            width: 300px;
+            width: 310px;
         }
     }
 
