@@ -6,9 +6,10 @@
 
 
 export default {
+
+
   mounted() {
-    const token = localStorage.getItem('token')
-    if(token) {
+    if(this.$store.state.isAuth) {
       this.$router.push('/')
     } else {
       this.$router.push('/login')

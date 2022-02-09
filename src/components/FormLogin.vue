@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <form @submit.prevent="login">
+        <form @submit.prevent="handleSubmit">
 
             <input
                 :class="v$.form.email.$error ? 'error' : ''"
@@ -61,6 +61,10 @@ import axios from 'axios'
 //
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength } from "@vuelidate/validators";
+//
+import { mapActions } from 'vuex';
+
+
 
 
 export default {
@@ -90,20 +94,15 @@ export default {
             this.form.isLogin = bool
         },
 
-        async login() {
+        ...mapActions({
+            login: 'auth/login'
+        }),
+
+        async handleSubmit() {
             this.v$.form.$touch()
             if (!this.v$.form.$error) {
-                this.setIsLogin(true)
-                await axios.post('https://smartbook-1v.herokuapp.com/users/login', {
-                    email: this.form.email,
-                    password: this.form.password
-                }).then(res => {
-                    if (res.data.token) {
-                        localStorage.setItem('token', res.data.token)
-                        this.$router.push('/')
-                    }
-                }).catch(e => console.log(e))
-                .finally(() => this.setIsLogin(false))
+                this.login({email: this.form.email, password: this.form.password})
+                this.$router.push('/')
             }
         }
     }
