@@ -20,14 +20,20 @@
 
 
             <div class="content">
-                <form>
+                <form @submit.prevent="registration">
                     <div class="firstname-lastname">
                         <input
+                            :class="v$.form.fullName.firstName.$error ? 'error' : ''"
+                            v-model="form.fullName.firstName"
                             :style="{margin: '0 5px 0 0'}"
                             class="form-control-input" 
                             placeholder="Firstname" 
                         />
+
+                        
                         <input
+                            :class="v$.form.fullName.lastName.$error ? 'error' : ''"
+                            v-model="form.fullName.lastName"
                             :style="{margin: '0 0 0 5px'}"
                             class="form-control-input" 
                             placeholder="Lastname" 
@@ -35,54 +41,97 @@
                     </div>
 
   
-                    <input 
+                    <input
+                        :class="v$.form.fullName.middleName.$error ? 'error' : ''"
+                        v-model="form.fullName.middleName"
                         class="form-control-input" 
                         placeholder="Middlename" 
                     />
+                    <div class="error-text" v-for="(error, index) of v$.form.fullName.middleName.$errors" :key="index">
+                        {{ error.$message }}
+                    </div>
+
 
                     <divider width="50%"/>
 
   
-                    <input 
+                    <input
+                        :class="v$.form.emailAndPassword.email.$error ? 'error' : ''"
+                        type="email"
+                        v-model="form.emailAndPassword.email"
                         class="form-control-input" 
                         placeholder="Email address" 
                     />
-                    <input 
+                    <div class="error-text" v-for="(error, index) of v$.form.emailAndPassword.email.$errors" :key="index">
+                            {{ error.$message }}
+                    </div>
+
+
+                    <input
+                        :class="v$.form.emailAndPassword.password.$error ? 'error' : ''"
+                        type="password"
+                        v-model="form.emailAndPassword.password"
                         class="form-control-input" 
                         placeholder="Password" 
                     />
+                    <div class="error-text" v-for="(error, index) of v$.form.emailAndPassword.password.$errors" :key="index">
+                            {{ error.$message }}
+                    </div>
+
 
                     <divider width="50%"/>
                     
+
                     <div class="dateOfBirth">
                         <p>Date of Birth</p>
                         <div>
-                            <select>
-                                <option v-for="(item, index) in dateOfBirth.days" :value="item" :key="item">{{ index + 1 }}</option>
+                            <select v-model="form.dateOfBirth.selectedDay">
+                                <option 
+                                    v-for="(item, index) in form.dateOfBirth.days" 
+                                    :value="item" 
+                                    :key="item"
+                                >
+                                    {{ index + 1 }}
+                                </option>
                             </select>
-                            <select>
-                                <option v-for="month in dateOfBirth.months" :value="month" :key="month">{{ month }}</option>
+                            <select v-model="form.dateOfBirth.selectedMonth">
+                                <option 
+                                    v-for="month in form.dateOfBirth.months" 
+                                    :value="month" 
+                                    :key="month"
+                                >
+                                    {{ month }}
+                                </option>
                             </select>
-                            <select>
-                                <option v-for="year in dateOfBirth.years()" :value="year" :key="year">{{ year }}</option>
+                            <select v-model="form.dateOfBirth.selectedYear">
+                                <option 
+                                    v-for="year in form.dateOfBirth.years()" 
+                                    :value="year" 
+                                    :key="year"
+                                >
+                                    {{ year }}
+                                </option>
                             </select>
                         </div>
                     </div>
 
 
-                    <div class="wrapper-sex">
-                        <p>Sex</p>
-                        <div class="sex">
-                            <label>
-                                Man <input name="sexRadio" value="man" type="radio"/>
+                    <div class="wrapper-gender">
+                        <p>Gender</p>
+                        <div class="gender">
+                            <label :class="v$.form.gender.$error ? 'error' : ''">
+                                Man <input v-model="form.gender" name="genderRadio" value="man" type="radio"/>
                             </label>
-                            <label>
-                                Woman <input name="sexRadio" value="woman" type="radio"/>
+                            <label :class="v$.form.gender.$error ? 'error' : ''">
+                                Woman <input v-model="form.gender" name="genderRadio" value="woman" type="radio"/>
                             </label>
+                        </div>
+                        <div class="error-text" v-for="(error, index) of v$.form.gender.$errors" :key="index">
+                            {{ error?.$message }}
                         </div>
                     </div>
 
-                    <button class="form-control-button-create-account">
+                    <button type="submit" class="form-control-button-create-account">
                         Create account
                     </button>
                 </form>
@@ -92,15 +141,18 @@
 </template>
 
 <script>
-import { validationMixin } from 'vuelidate'
+import useVuelidate from "@vuelidate/core";
+import { required, email, minLength } from "@vuelidate/validators";
 //
 import MyButton from './UI/MyButton.vue'
 import MyInput from './UI/MyInput.vue'
 
 
+
+
+
 export default {
   components: { MyInput, MyButton },
-  mixins: [validationMixin],
 
   props: {
       isShow: {
@@ -110,21 +162,74 @@ export default {
   },
 
   data() {
+    return {
+        v$: useVuelidate(),
+        form: {
+            fullName: {
+                firstName: '',
+                lastName: '',
+                middleName: ''
+            },
+            emailAndPassword: {
+                email: '',
+                password: ''
+            },
+            dateOfBirth: {
+                days: 31,
+                selectedDay: '1',
+
+                months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+                selectedMonth: 'Январь',
+
+                years: () => {
+                    let arr = []
+                    
+                    for (let i = 1900; i < new Date().getFullYear(); i++) {
+                        arr[i] = i + 1
+                    }
+                    return arr.filter(el => el !== undefined)
+                },
+                selectedYear: new Date().getFullYear()
+            },
+            gender: '',
+
+            isRegistration: false
+        }
+    }
+  },
+
+  validations() {
       return {
-          dateOfBirth: {
-              days: 31,
-              months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-              years: () => {
-                  let arr = []
-                  
-                  for (let i = 1900; i < new Date().getFullYear(); i++) {
-                    arr[i] = i + 1
-                  }
-                  return arr.filter(el => el !== undefined)
-              }
+          form: {
+            fullName: {
+                firstName: { required },
+                lastName: { required },
+                middleName: { required }
+            },
+            emailAndPassword: {
+                email: { required, email },
+                password: { required, minLength: minLength(6) }
+            },
+            dateOfBirth: {
+                selectedDay: { required },
+                selectedMonth: { required },
+                selectedYear: { required }
+            },
+            gender: { required }
+          }
+      }
+  },
+
+
+  methods: {
+      registration() {
+          this.v$.form.$touch()
+          if (!this.v$.form.$error) {
+            alert('registration')
           }
       }
   }
+
     
 }
 </script>
@@ -210,25 +315,25 @@ export default {
 
 
 
-    .wrapper-sex {
+    .wrapper-gender {
         height: auto;
         margin: 15px 0;
     }
 
-    .wrapper-sex p {
+    .wrapper-gender p {
         margin: 0 0 2px 0;
         font-size: 14px;
     }
 
 
-    .sex {
+    .gender {
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: 41px;
     }
 
-    .sex label {
+    .gender label {
         cursor: pointer;
         
         display: flex;
@@ -264,11 +369,66 @@ export default {
 
 
 
+    /* S T Y L E   F O R   V A L I D A T I O N */
+
+    
+    .error {
+        border: 1px solid red;
+        box-shadow: 0px 0px 4px rgba(255, 11, 11, 0.25);
+    }
+    .error::placeholder {
+        color: red;
+    }
+
+    .error-text {
+        color: red;
+        font-size: 12px;
+    }
+
+
+
     /* M E D I A*/
 
+    /* 360 */
     @media screen and (max-width: 360px) {
         .wrapper {
             width: 300px;
         }
     }
+
+
+    /* 1600 */
+    @media screen and (min-width: 1600px) {
+
+        .wrapper {
+            width: 435px;
+        }
+
+        .header p {
+            font-size: 38px;
+        }
+
+
+        .form-control-input {
+            margin: 16px 0;
+            padding: 21px 15px; 
+            font-size: 20px;
+        }
+
+        .gender {
+            height: 61px;
+            font-size: 20px;
+        }
+
+        .gender label input {
+            height: 40px;
+        }
+
+        .form-control-button-create-account {
+            margin: 20px 0 14px 0;
+            padding: 21px 13px;
+            font-size: 23px;
+        }
+    }
+    
 </style>

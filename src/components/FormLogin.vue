@@ -10,7 +10,7 @@
                 placeholder="Email address" />
 
             <div class="error-text" v-for="(error, index) of v$.form.email.$errors" :key="index">
-                <div class="error-msg">{{ error.$message }}</div>
+                {{ error.$message }}
             </div>
 
             
@@ -244,13 +244,13 @@ export default {
         
         .form-control-button-register {
             margin: 0 0 14px 0;
-            padding: 20px 13px;
+            padding: 21px 13px;
             font-size: 23px;
         }
 
         .form-control-button-login {
             margin: 14px 0;
-            padding: 20px 13px;
+            padding: 21px 13px;
             font-size: 23px;
         }
 
