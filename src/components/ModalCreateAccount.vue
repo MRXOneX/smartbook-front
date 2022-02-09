@@ -311,6 +311,7 @@ export default {
         border-radius: 5px;
         border: 1px solid #c4c4c4;
         outline: none;
+        cursor: pointer;
     }
 
 
@@ -401,7 +402,7 @@ export default {
     @media screen and (min-width: 1600px) {
 
         .wrapper {
-            width: 435px;
+            width: 440px;
         }
 
         .header p {
@@ -410,8 +411,13 @@ export default {
 
 
         .form-control-input {
-            margin: 16px 0;
+            margin: 12px 0;
             padding: 21px 15px; 
+            font-size: 20px;
+        }
+
+        .dateOfBirth div select {
+            height: 61px;
             font-size: 20px;
         }
 

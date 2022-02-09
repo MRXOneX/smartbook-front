@@ -30,4 +30,13 @@ export default {
         background-color: #c4c4c4;
         border-radius: 20px;
     }
+
+
+    /* M E D I A */
+
+    @media screen and (min-width: 1600px) {
+        .divider {
+            margin: 15px;
+        }
+    }
 </style>
