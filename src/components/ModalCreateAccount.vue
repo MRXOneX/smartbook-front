@@ -402,7 +402,7 @@ export default {
     @media screen and (min-width: 1600px) {
 
         .wrapper {
-            width: 440px;
+            width: 480px;
         }
 
         .header p {
@@ -412,17 +412,17 @@ export default {
 
         .form-control-input {
             margin: 12px 0;
-            padding: 21px 15px; 
+            padding: 19px 15px; 
             font-size: 20px;
         }
 
         .dateOfBirth div select {
-            height: 61px;
+            height: 60px;
             font-size: 20px;
         }
 
         .gender {
-            height: 61px;
+            height: 60px;
             font-size: 20px;
         }
 
@@ -432,7 +432,7 @@ export default {
 
         .form-control-button-create-account {
             margin: 20px 0 14px 0;
-            padding: 21px 13px;
+            padding: 19px 13px;
             font-size: 23px;
         }
     }
