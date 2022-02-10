@@ -20,7 +20,7 @@
 
 
             <div class="content">
-                <form @submit.prevent="registration">
+                <form @submit.prevent="handleSubmit">
                     <div class="firstname-lastname">
                         <input
                             :class="v$.form.fullName.firstName.$error ? 'error' : ''"
@@ -144,6 +144,8 @@
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength } from "@vuelidate/validators";
 //
+import { mapActions } from "vuex"
+//
 import MyButton from './UI/MyButton.vue'
 import MyInput from './UI/MyInput.vue'
 
@@ -153,6 +155,7 @@ import MyInput from './UI/MyInput.vue'
 
 export default {
   components: { MyInput, MyButton },
+
 
   props: {
       isShow: {
@@ -222,10 +225,22 @@ export default {
 
 
   methods: {
-      registration() {
+    ...mapActions({
+        registration: 'auth/registration'
+    }),
+    handleSubmit() {
           this.v$.form.$touch()
           if (!this.v$.form.$error) {
-            alert('registration')
+            const payload = {
+                firstname: this.form.fullName.firstName,
+                lastname: this.form.fullName.lastName,
+                middlename: this.form.fullName.middleName,
+                email: this.form.emailAndPassword.email,
+                password: this.form.emailAndPassword.password,
+                dateOfBirth: `${this.form.dateOfBirth.selectedDay}.${this.form.dateOfBirth.months.indexOf(this.form.dateOfBirth.selectedMonth) + 1}.${this.form.dateOfBirth.selectedYear}`,
+                gender: this.form.gender
+            }
+            this.registration(payload)
           }
       }
   }

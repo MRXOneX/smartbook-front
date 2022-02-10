@@ -7,14 +7,27 @@
 
 export default {
 
-
-  mounted() {
-    if(this.$store.state.isAuth) {
-      this.$router.push('/')
-    } else {
-      this.$router.push('/login')
+  data() {
+    return {
+      isAuth: this.$store.getters['auth/getIsAuth']
     }
   },
+
+
+  mounted() {
+    console.log(this.$store.getters['auth/getIsAuth'])
+
+  },
+  watch() {
+    isAuth: {
+      console.log('ss')
+    }
+  },
+  // computed: {
+  //   isAuth: function () {
+  //     return this.$store.getters['auth/getIsAuth']
+  //   }
+  // }
 }
 </script>
 

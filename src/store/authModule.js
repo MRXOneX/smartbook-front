@@ -1,3 +1,4 @@
+import axios from 'axios'
 import AuthService from '../services/AuthService'
 
 
@@ -12,10 +13,14 @@ export const authModule = {
     getters: {
         getIsAuth(state) {
             return state.isAuth
+        },
+
+        getUser() {
+            return state.user
         }
     },
     mutations: {
-        setAuth(state, bool) {
+        setIsAuth(state, bool) {
             state.isAuth = bool
         },
 
@@ -28,19 +33,59 @@ export const authModule = {
         }
     },
     actions: {
-        async login({state, commit}, payload) {
+        async login({commit}, payload) {
             try {
                 
                 const response = await AuthService.login(payload.email, payload.password)
 
                 localStorage.setItem('tokenSmartBook', response.data.access_token)
                 commit('setUser', response.data.user)
-                commit('setLoading', true)
+                commit('setIsAuth', true)
 
-                console.log(state.isAuth)
+
             } catch (e) {
                 console.log(`authModule login error: ${e}`)
             }
+        },
+
+
+        async registration({state, commit}, payload) {
+            try {
+                const response = await AuthService.registration(
+                    payload.firstname,
+                    payload.lastname,
+                    payload.middlename,
+                    payload.email,
+                    payload.password,
+                    payload.dateOfBirth,
+                    payload.gender
+                )
+                console.log(response)
+
+                localStorage.setItem('tokenSmartBook', response.data.access_token)
+                commit('setUser', response.data.user)
+                commit('setIsAuth', true)
+
+            } catch(e) {
+                console.log(`authModule error: ${e}`)
+            }
+        }
+    },
+
+
+    async checkAuth({state, commit}, payload) {
+        commit('setLoading', true)
+
+        try {
+            const response = await axios.get('https://smartbook-1v.herokuapp.com/users/refresh')
+
+            localStorage.setItem('tokenSmartBook', response.data.access_token)
+            commit('setUser', response.data.user)
+            commit('setIsAuth', true)
+        } catch(e) {
+            console.log(`authModule error: ${e}`)
+        } finally {
+            commit('setLoading', false)
         }
     },
     namespaced: true
