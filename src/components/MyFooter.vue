@@ -17,4 +17,14 @@ export default {}
         font-weight: 400;
         font-family: 'Righteous', cursive;
     }
+
+
+    /* M E D I A */
+
+
+    @media screen and (min-width: 1600px) {
+        span {
+            font-size: 16px;
+        }
+    }
 </style>
