@@ -76,7 +76,7 @@ export const authModule = {
             commit('setLoading', true)
     
             try {
-                const response = await axios.get('http://localhost:3000/users/refresh', {withCredentials: true})
+                const response = await axios.get('https://smartbook-1v.herokuapp.com/users/refresh', {withCredentials: true})
     
                 localStorage.setItem('tokenSmartBook', response.data.access_token)
                 commit('setUser', response.data.user)
