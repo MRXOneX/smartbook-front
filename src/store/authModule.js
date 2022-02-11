@@ -60,7 +60,7 @@ export const authModule = {
                     payload.dateOfBirth,
                     payload.gender
                 )
-                console.log(response)
+
 
                 localStorage.setItem('tokenSmartBook', response.data.access_token)
                 commit('setUser', response.data.user)
@@ -73,15 +73,17 @@ export const authModule = {
     },
 
 
-    async checkAuth({state, commit}, payload) {
+    async checkAuth({state, commit}) {
         commit('setLoading', true)
 
         try {
             const response = await axios.get('https://smartbook-1v.herokuapp.com/users/refresh')
+            console.log(response)
 
             localStorage.setItem('tokenSmartBook', response.data.access_token)
             commit('setUser', response.data.user)
             commit('setIsAuth', true)
+
         } catch(e) {
             console.log(`authModule error: ${e}`)
         } finally {

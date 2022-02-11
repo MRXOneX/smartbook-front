@@ -263,7 +263,7 @@ export default {
     }
 
     .wrapper {
-        width: 400px;
+        width: 350px;
         height: auto;
         background: #FFFFFF;
         box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
@@ -417,7 +417,7 @@ export default {
     @media screen and (min-width: 1600px) {
 
         .wrapper {
-            width: 480px;
+            width: 500px;
         }
 
         .header p {

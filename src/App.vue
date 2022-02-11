@@ -3,9 +3,10 @@
 </template>
 
 <script>
-
+import { mapActions } from 'vuex';
 
 export default {
+
 
   data() {
     return {
@@ -13,16 +14,19 @@ export default {
     }
   },
 
+  methods: {
+  },
 
   mounted() {
-    console.log(this.$store.getters['auth/getIsAuth'])
+    if(localStorage.getItem('tokenSmartBook')) {
+    }
 
   },
-  watch() {
-    isAuth: {
-      console.log('ss')
-    }
-  },
+  // watch() {
+  //   isAuth: {
+  //     console.log('ss')
+  //   }
+  // },
   // computed: {
   //   isAuth: function () {
   //     return this.$store.getters['auth/getIsAuth']
