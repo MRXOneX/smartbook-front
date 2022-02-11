@@ -222,7 +222,7 @@ export default {
         .wrapper {
             background: none;
             box-shadow: none;
-            width: 310px;
+            width: 300px;
         }
     }
 

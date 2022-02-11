@@ -5,6 +5,7 @@ import AuthService from '../services/AuthService'
 
 
 export const authModule = {
+    namespaced: true,
     state: () => ({
         user: {},
         isAuth: false,
@@ -69,26 +70,23 @@ export const authModule = {
             } catch(e) {
                 console.log(`authModule error: ${e}`)
             }
+        },
+
+        async checkAuth({state, commit}) {
+            commit('setLoading', true)
+    
+            try {
+                const response = await axios.get('http://localhost:3000/users/refresh', {withCredentials: true})
+    
+                localStorage.setItem('tokenSmartBook', response.data.access_token)
+                commit('setUser', response.data.user)
+                commit('setIsAuth', true)
+    
+            } catch(e) {
+                console.log(`authModule error: ${e}`)
+            } finally {
+                commit('setLoading', false)
+            }
         }
-    },
-
-
-    async checkAuth({state, commit}) {
-        commit('setLoading', true)
-
-        try {
-            const response = await axios.get('https://smartbook-1v.herokuapp.com/users/refresh')
-            console.log(response)
-
-            localStorage.setItem('tokenSmartBook', response.data.access_token)
-            commit('setUser', response.data.user)
-            commit('setIsAuth', true)
-
-        } catch(e) {
-            console.log(`authModule error: ${e}`)
-        } finally {
-            commit('setLoading', false)
-        }
-    },
-    namespaced: true
+    }
 }

@@ -8,30 +8,37 @@ import { mapActions } from 'vuex';
 export default {
 
 
-  data() {
-    return {
-      isAuth: this.$store.getters['auth/getIsAuth']
-    }
-  },
 
   methods: {
+    ...mapActions({
+      checkAuth: 'auth/checkAuth'
+    })
   },
 
   mounted() {
     if(localStorage.getItem('tokenSmartBook')) {
+      console.log(this.$store.getters['auth/getIsAuth'])
+      this.checkAuth()
     }
 
   },
-  // watch() {
-  //   isAuth: {
-  //     console.log('ss')
-  //   }
-  // },
-  // computed: {
-  //   isAuth: function () {
-  //     return this.$store.getters['auth/getIsAuth']
-  //   }
-  // }
+
+  computed: {
+    isAuth() {
+      return this.$store.getters['auth/getIsAuth']
+    }
+  },
+
+  watch: {
+    isAuth(bool) {
+      if(bool) {
+        this.$router.push('/')
+      } else {
+        this.$router.push('/login')
+      }
+    }
+  }
+
 }
 </script>
 

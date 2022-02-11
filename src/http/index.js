@@ -1,10 +1,11 @@
 import axios from 'axios'
 
 
-const API_URL = 'https://smartbook-1v.herokuapp.com/'
+const API_URL = 'http://localhost:3000/'
 
 const $api = axios.create({
-    baseURL: API_URL
+    baseURL: API_URL,
+    withCredentials: true
 })
 
 $api.interceptors.request.use((config) => {
