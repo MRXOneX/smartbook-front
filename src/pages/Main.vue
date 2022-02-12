@@ -3,9 +3,9 @@
         <div class="wrapper-organization">
             <div class="header-organization">
                 <div class="cover">
-                    <div>
+                    <!-- <div>
                         <img src="https://i.imgur.com/xtqyOga.jpg"  alt="">
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="content-organization">
@@ -20,58 +20,9 @@
                         >
                             Main page
                         </my-button>
-                    </div><div>
-                        <my-button 
-                            width="auto" 
-                            padding="15px 25px"
-                            backgroundColor="C8EAC9"
-                            color="#3F3F3F"
-                            margin="0 0 0 15px"
-                        >
-                            Main page
-                        </my-button>
-                    </div><div>
-                        <my-button 
-                            width="auto" 
-                            padding="15px 25px"
-                            backgroundColor="C8EAC9"
-                            color="#3F3F3F"
-                            margin="0 0 0 15px"
-                        >
-                            Main page
-                        </my-button>
-                    </div><div>
-                        <my-button 
-                            width="auto" 
-                            padding="15px 25px"
-                            backgroundColor="C8EAC9"
-                            color="#3F3F3F"
-                            margin="0 0 0 15px"
-                        >
-                            Main page
-                        </my-button>
-                    </div><div>
-                        <my-button 
-                            width="auto" 
-                            padding="15px 25px"
-                            backgroundColor="C8EAC9"
-                            color="#3F3F3F"
-                            margin="0 0 0 15px"
-                        >
-                            Main page
-                        </my-button>
-                    </div><div>
-                        <my-button 
-                            width="auto" 
-                            padding="15px 25px"
-                            backgroundColor="C8EAC9"
-                            color="#3F3F3F"
-                            margin="0 0 0 15px"
-                        >
-                            Main page
-                        </my-button>
                     </div>
-                    <div>
+                    <my-select />
+                    <!-- <div>
                         <my-button 
                             width="auto" 
                             backgroundColor="rgba(188, 200, 242, 0.51)"
@@ -84,12 +35,12 @@
                             :icon="['fas', 'plus']" 
                             :style="{background: 'none'}" />
                         </my-button>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="sidebar-organization">
                     <div class="left-menu">
                         <div>
-                            <my-button 
+                            <!-- <my-button 
                                 width="auto" 
                                 backgroundColor="rgba(188, 200, 242, 0.51)"
                                 border="2px solid rgba(69, 204, 247, 0.7)"
@@ -99,7 +50,7 @@
                                 <font-awesome-icon
                                     :icon="['fas', 'plus']" 
                                     :style="{background: 'none'}" />
-                            </my-button>
+                            </my-button> -->
                         </div>
                     </div>
                     <div class="up-menu">2</div>
@@ -132,15 +83,14 @@ export default {
 
         background: white;
         box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
-        border-radius: 5px;
-        padding: 20px;
+        border-radius: 10px 10px 5px 5px;
     }
 
     .cover {
         width: 100%;
         height: 300px;
         background: linear-gradient(85.38deg, #A511FF -43.14%, rgba(200, 196, 238, 0.18) 116.17%);
-        border-radius: 10px;
+        border-radius: 10px 10px 15px 15px;
         position: relative;
     }
 
